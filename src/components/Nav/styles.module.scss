@@ -1,0 +1,80 @@
+.navContainer {
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+
+    .nav {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 24px;
+        width: 50%;
+        min-height: 46px;
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        font-style: italic;
+        justify-content: center;
+        position: relative;
+    
+        .topRow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 9px;
+            width: calc(100% - 48px); 
+            z-index: 1;
+            cursor: pointer;
+    
+            .burger {
+                margin-right: auto;
+                position: absolute;
+                left: 0px;
+                cursor: pointer;
+            }
+        }
+    
+        .items {
+            list-style-type: none;
+            text-align: center;
+    
+            li {
+                margin-bottom: 12px;
+            }
+    
+            .active {
+                &::after {
+                    content: "";
+                    background: url(/logo.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: bottom;
+                    width: 24px;
+                    height: 22px;
+                    position: absolute;
+                    margin-left: 7px;
+                }
+            }
+        }
+    }
+    
+    .languageContainer {
+        display: flex;
+
+        .option {
+            width: 46px;
+            height: 46px;
+            border-radius: 99px;
+            background-color: white;
+            border: 1px solid black;
+            margin-left: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}
