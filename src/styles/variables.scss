@@ -1,0 +1,85 @@
+//color variables
+$white: #FFFFFF;
+$black: #000000;
+$yellow: #FBF462;
+
+//breakpoint variables
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+	@media (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+//font-face
+//TODO: replace with real version
+@font-face {
+  font-family: 'Self Modern';
+  src: url('/assets/fonts/self-modern_regular_trial.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('/assets/fonts/self-modern_book_trial.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('/assets/fonts/self-modern_italic_trial.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+//typeface mixins
+@mixin display-1 {
+  font-family: 'Acumin Pro';
+	font-size: 9.375rem;
+	font-weight: 500;
+	line-height: 6.25rem;
+	letter-spacing: -0.05em;
+
+	@include tablet {
+		font-size: 6.5rem;
+	}
+
+	@include mobile {
+		font-size: 6.5rem;
+	}
+}
+
+//helper classes
+//spaces
+.mr-8 {
+	margin-right: 8px;
+}
+
+@include tablet {
+	.mb-40 {
+		margin-bottom: 32px;
+	}
+}
+
+//typography
+.caps {
+	text-transform: uppercase;
+}
+
