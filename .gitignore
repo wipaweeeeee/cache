@@ -1,0 +1,10 @@
+node_modules/
+*.log
+
+# Output directory
+dist/
+
+.DS_Store
+.eslintcache
+
+.env
