@@ -1,11 +1,11 @@
-// import Logo from '../Logo/';
+import Logo from '@/components/Logo/';
 import Nav from '@/components/Nav';
 import { Outlet } from 'react-router-dom';
 
 const Header = () => {
     return (
         <>
-            {/* <Logo /> */}
+            <Logo />
             <Nav />
             <Outlet/>
         </>
