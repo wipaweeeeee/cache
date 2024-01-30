@@ -1,7 +1,12 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
+import { Environment, Text, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import styles from './styles.module.scss';
+import Model from './Model'
+
+//TODO: add window resize to make sure things scale correctly
+//TODO: add chili + typography
 
 const vertextShader = `
     void main() {
@@ -69,8 +74,8 @@ const fragmentShader = `
         vec3 colorGreen = vec3(0, 1, 0);
         vec3 colorBlue = vec3(0.082, 0.843, 1);
 
-        vec3 layer2 = mix(colorGreen, colorBlue, S(-.4, .2, (tuv*Rot(radians(-5.))).x));
-        vec3 finalComp = mix(colorWhite, layer2, S(0.8, -0.3, tuv.y));
+        vec3 layer2 = mix(colorGreen, colorBlue, S(-.4, .2, (tuv*Rot(radians(-.5))).y));
+        vec3 finalComp = mix(colorWhite, layer2, S(0.8, -0.3, tuv.x));
         
         vec3 col = finalComp;
         
@@ -109,8 +114,19 @@ const Bg = () => {
 const Scene = () => {
     return (
         <div className={styles.canvas}>
-            <Canvas>
-                <Bg />
+            <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+                <Suspense fallback={null}>
+                    {/* <color attach="background" args={["#e0e0e0"]} /> */}
+                    <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
+                    <Model />
+                    <Text fontSize={3} letterSpacing={-0.025} color="black">
+                        hello
+                    </Text>
+                    <Bg />
+                    <Environment preset="city">
+                        <Lightformer intensity={8} position={[10, 5, 0]} scale={[10, 50, 1]} onUpdate={(self) => self.lookAt(0, 0, 0)} />
+                    </Environment>
+                </Suspense>
              </Canvas>
         </div>
     )
