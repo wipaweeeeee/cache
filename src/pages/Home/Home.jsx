@@ -1,6 +1,11 @@
+import Scene from '@/components/Scene';
+
 const Home = () => {
     return (
-        <div>home</div>
+        <div>
+            <div>home</div>
+            <Scene />
+        </div>
     )
 }
 
