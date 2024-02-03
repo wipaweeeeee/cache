@@ -21,6 +21,10 @@
 
   body {
     padding: 40px;
+
+    @include mobile {
+      padding: 32px 20px;
+    }
   }
   
   p {

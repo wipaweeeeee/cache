@@ -78,3 +78,22 @@
         }
     }
 }
+
+@include mobile {
+    .navContainer { 
+        justify-content: right;
+
+        .nav {
+            min-height: 40px;
+            font-size: 16px;
+        }
+
+        .languageContainer {
+            .option {
+                width: 40px;
+                height: 40px;
+                margin-left: 8px;
+            }
+        }
+    }
+}
