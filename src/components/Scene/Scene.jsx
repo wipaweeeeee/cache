@@ -1,6 +1,6 @@
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useRef, useMemo, Suspense } from 'react';
-import { Environment, Text, Lightformer } from "@react-three/drei";
+import { Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import styles from './styles.module.scss';
 import Model from './Model'
@@ -88,7 +88,6 @@ const Bg = () => {
 
     useFrame((state) => {
         let time = state.clock.getElapsedTime();
-    
         mesh.current.material.uniforms.u_time.value = time;
     });
 
@@ -100,8 +99,8 @@ const Bg = () => {
     )
 
     return (
-        <mesh ref={mesh}>
-            <planeGeometry args={[window.innerWidth,window.innerHeight]} />
+        <mesh ref={mesh} position={[0,0,-5]}>
+            <planeGeometry args={[window.innerWidth, window.innerHeight]} />
             <shaderMaterial 
                 fragmentShader={fragmentShader}
                 vertextShader={vertextShader}
@@ -111,17 +110,24 @@ const Bg = () => {
     )
 }
 
+const Shift = () => {
+    const texture = useLoader(THREE.TextureLoader, '/models/shift_logo.png')
+    return (
+        <mesh position={[-0.5,1.5,0]}>
+            <planeGeometry attach="geometry" args={[3.6, 1.6]}/>
+            <meshBasicMaterial attach="material" map={texture} transparent={true}/>
+        </mesh>
+    )
+}
+
 const Scene = () => {
     return (
         <div className={styles.canvas}>
             <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
                 <Suspense fallback={null}>
-                    {/* <color attach="background" args={["#e0e0e0"]} /> */}
                     <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
+                    <Shift />
                     <Model />
-                    <Text fontSize={3} letterSpacing={-0.025} color="black">
-                        hello
-                    </Text>
                     <Bg />
                     <Environment preset="city">
                         <Lightformer intensity={8} position={[10, 5, 0]} scale={[10, 50, 1]} onUpdate={(self) => self.lookAt(0, 0, 0)} />
