@@ -3,6 +3,8 @@ import Scene from '@/components/Scene';
 import styles from './styles.module.scss';
 import Airtable from 'airtable';
 
+//TODO: add modal to add email on mobile instead to avoid keyboard push bug
+
 const Home = () => {
 
     const [email, setEmail] = useState('');

@@ -12,7 +12,7 @@ export default function Model({ windowWidth }) {
 
   useFrame((state, delta) => {
     mesh.current.rotation.y += delta * 0.02;
-    mesh.current.rotation.x += delta * 0.02;
+    mesh.current.rotation.x += delta * 0.2;
   })
 
   const deg = (angle) => {
@@ -32,7 +32,7 @@ export default function Model({ windowWidth }) {
       setScale(1.7)
       setVertical(false);
     } else if (windowWidth < 767) {
-      setScale(1.35)
+      setScale(1.1)
       setVertical(true);
     }
 
@@ -48,12 +48,12 @@ export default function Model({ windowWidth }) {
       >
         <mesh
           geometry={nodes.chilli_curve_smooth.geometry}
-          position={[0, vertical ? 0 : 0.8, 0]}
-          rotation={[deg(90), vertical ? deg(30) : deg(0), deg(0)]}
+          position={[0, vertical ? 0.4 : 0.8, 0]}
+          rotation={[deg(90), vertical ? deg(30) : deg(0), vertical ? deg(20) : deg(0)]}
           scale={scale}
         >
           <MeshTransmissionMaterial thickness={15} ior={3} clearcoat={1} />
-    </mesh>
+      </mesh>
     </PresentationControls>
     </group>
   );

@@ -31,6 +31,7 @@
         border-radius: 99px;
         background-color: white;
         margin-left: 12px;
+        color: black;
     }
 
     .status {
@@ -63,22 +64,26 @@
 
         right: unset;
         left: 24px;
-        bottom: 36px;
+        bottom: 24px;
         width: calc(100% - 48px);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
 
         input {
-            width: 240px;
+            width: 70%;
             height: 40px;
             font-size: 14px;
         }
 
         .button {
             height: 40px;
-            padding: 0px 24px;
             font-size: 14px;
+            width: 28%;
+            margin-left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .status {
