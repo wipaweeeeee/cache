@@ -1,25 +1,45 @@
-import React, { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useGLTF, MeshTransmissionMaterial, PresentationControls } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber'
 
-export default function Model(props) {
+export default function Model({ windowWidth }) {
 
-  const { nodes, materials } = useGLTF("/models/chili_curve_rig.glb");
+  const { nodes } = useGLTF("/models/chilli_curve_smooth.glb");
   const mesh = useRef();
 
+  const [scale, setScale] = useState(2.8);
+  const [vertical, setVertical] = useState(false);
+
   useFrame((state, delta) => {
-    // mesh.current.rotation.y += delta * 0.02;
-    mesh.current.rotation.z += delta * 0.02;
+    mesh.current.rotation.y += delta * 0.02;
+    mesh.current.rotation.x += delta * 0.02;
   })
 
   const deg = (angle) => {
     let radian = 2 * Math.PI * (angle / 360);
-
     return radian;
   }
 
+  useEffect(() => {
+
+    if (windowWidth > 1440) {
+      setScale(2.2)
+      setVertical(false);
+    } else if (windowWidth >= 1024 && windowWidth < 1439) {
+      setScale(2)
+      setVertical(false);
+    } else if (windowWidth >= 768 && windowWidth < 1023) {
+      setScale(1.7)
+      setVertical(false);
+    } else if (windowWidth < 767) {
+      setScale(1.35)
+      setVertical(true);
+    }
+
+  },[windowWidth])
+
   return (
-    <group {...props} dispose={null} ref={mesh}>
+    <group dispose={null} ref={mesh}>
       <PresentationControls
         enabled={true} // the controls can be disabled by setting this to false
         global={true} // Spin globally or by dragging the model
@@ -27,18 +47,16 @@ export default function Model(props) {
         snap={false} // Snap-back to center (can also be a spring config)
       >
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Chili_pepper1.geometry}
-          position={[0, -0.5, -2]}
-          rotation={[deg(270), deg(150), deg(0)]}
-          scale={1.8}
+          geometry={nodes.chilli_curve_smooth.geometry}
+          position={[0, vertical ? 0 : 0.8, 0]}
+          rotation={[deg(90), vertical ? deg(30) : deg(0), deg(0)]}
+          scale={scale}
         >
-          <MeshTransmissionMaterial backside backsideThickness={10} thickness={15} />
+          <MeshTransmissionMaterial thickness={15} ior={3} clearcoat={1} />
     </mesh>
     </PresentationControls>
     </group>
   );
 }
 
-useGLTF.preload("/models/chili_normal.glb");
+useGLTF.preload("/models/chilli_curve_smooth.glb");

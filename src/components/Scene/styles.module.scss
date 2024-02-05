@@ -9,4 +9,31 @@
     canvas {
         touch-action: none;
     }
+
+    .pill {
+        padding: 6px 20px;
+        background: white;
+        border: 1px solid black;
+        border-radius: 99px;
+        font-style: italic;
+        font-size: 15px;
+    }
+}
+
+@include tablet {
+    .canvas {
+        .pill {
+            font-size: 14px;
+            padding: 6px 16px;
+        }
+    }
+}
+
+@include mobile {
+    .canvas {
+        .pill {
+            font-size: 12px;
+            padding: 6px 16px;
+        }
+    }
 }

@@ -1,0 +1,78 @@
+.emailContainer {
+    position: absolute;
+    bottom: 70px;
+    right: 80px;
+
+    input {
+        background-color: white;
+        width: 320px;
+        height: 46px;
+        border: 1px solid black;
+        border-radius: 99px;
+        font-family: "Self Modern";
+        font-style: italic;
+        font-size: 18px;
+        padding: 10px 20px;
+
+        &::placeholder {
+            color: black;
+            font-size: 18px;
+        }
+    }
+
+    .button {
+        height: 46px;
+        padding: 0px 34px;
+        font-size: 18px;
+        font-family: "Self Modern";
+        font-style: italic;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 99px;
+        background-color: white;
+        margin-left: 12px;
+    }
+}
+
+@include tablet {
+    .emailContainer {
+
+        right: 20px;
+
+        input {
+            width: 240px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        .button {
+            height: 40px;
+            padding: 0px 24px;
+            font-size: 14px;
+        }
+    }
+}
+
+@include mobile {
+    .emailContainer {
+
+        right: unset;
+        left: 24px;
+        bottom: 36px;
+        width: calc(100% - 48px);
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            width: 240px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        .button {
+            height: 40px;
+            padding: 0px 24px;
+            font-size: 14px;
+        }
+    }
+}
