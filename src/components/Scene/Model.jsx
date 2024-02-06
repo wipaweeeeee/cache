@@ -12,7 +12,7 @@ export default function Model({ windowWidth }) {
 
   useFrame((state, delta) => {
     mesh.current.rotation.y += delta * 0.02;
-    mesh.current.rotation.x += delta * 0.2;
+    mesh.current.rotation.x -= delta * 0.02;
   })
 
   const deg = (angle) => {
@@ -42,7 +42,7 @@ export default function Model({ windowWidth }) {
     <group dispose={null} ref={mesh}>
       <PresentationControls
         enabled={true} // the controls can be disabled by setting this to false
-        global={true} // Spin globally or by dragging the model
+        global={false} // Spin globally or by dragging the model
         cursor={false} // Whether to toggle cursor style on drag
         snap={false} // Snap-back to center (can also be a spring config)
       >

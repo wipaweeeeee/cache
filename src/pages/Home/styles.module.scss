@@ -60,35 +60,94 @@
 }
 
 @include mobile {
-    .emailContainer {
-
-        right: unset;
-        left: 24px;
-        bottom: 24px;
-        width: calc(100% - 48px);
+    
+    .mobileContainer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        input {
-            width: 70%;
-            height: 40px;
-            font-size: 14px;
-        }
+        justify-content: center;
+        margin-bottom: 20px;
 
         .button {
             height: 40px;
-            font-size: 14px;
-            width: 28%;
-            margin-left: 0;
+            width: calc(100% - 64px);
+            font-size: 18px;
+            font-family: "Self Modern";
+            font-style: italic;
+            outline: none;
+            border: 1px solid black;
+            border-radius: 99px;
+            background-color: white;
+            color: black;
+        }
+    }
+
+    .modalContainer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        width: 100vw;
+        height: 160px;
+        z-index: 999;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        border-top-right-radius: 24px;
+        border-top-left-radius: 24px;
+
+        .form {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            margin-bottom: 10px;
+
+            input {
+                background-color: white;
+                width: calc(100% - 48px);
+                height: 40px;
+                border: 1px solid black;
+                border-radius: 99px;
+                font-family: "Self Modern";
+                font-style: italic;
+                font-size: 18px;
+                padding: 10px 20px;
+        
+                &::placeholder {
+                    color: black;
+                    font-size: 18px;
+                }
+            }
+    
+            .arrow {
+                background: url('/arrow.svg');
+                width: 40px;
+                height: 40px;
+                border-radius: 99px;
+            }
         }
 
-        .status {
-            width: 100%;
-            margin-top: 4px;
+        .close {
+            position: absolute;
+            top: 20px;
+            width: calc(100% - 64px);
+            text-align: center;
+            font-family: "Self Modern";
+            font-style: italic;
+            color: black;
+            font-size: 20px;
         }
+    }
+    
+    .scrim {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(black, 0.5);
+        z-index: -1;
     }
 }

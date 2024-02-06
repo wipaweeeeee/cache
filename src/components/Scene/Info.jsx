@@ -29,8 +29,8 @@ const Info = ({ label, firstLine, secondLine, order, windowWidth }) => {
             setFontSize(0.25);
             setMobile(false);
         } else if (windowWidth < 767) {
-            setSpacer({one: 32, two: 180, three: 320});
-            setLineHeight({label: 3.9, first: 3.1, second: 2.85})
+            setSpacer({one: 40, two: 195, three: 340});
+            setLineHeight({label: 3.9, first: 3, second: 2.75})
             setFontSize(0.22);
             setMobile(true);
         }
