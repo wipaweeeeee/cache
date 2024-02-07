@@ -29,21 +29,21 @@ $desktop-width: 1024px;
 //TODO: replace with real version
 @font-face {
   font-family: 'Self Modern';
-  src: url('/assets/fonts/self-modern_regular_trial.woff') format('woff');
+  src: url('/fonts/self-modern_regular_trial.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
     font-family: 'Self Modern';
-    src: url('/assets/fonts/self-modern_book_trial.woff') format('woff');
+    src: url('/fonts/self-modern_book_trial.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Self Modern';
-    src: url('/assets/fonts/self-modern_italic_trial.woff') format('woff');
+    src: url('/fonts/self-modern_italic_trial.woff') format('woff');
     font-weight: 400;
     font-style: italic;
 }
