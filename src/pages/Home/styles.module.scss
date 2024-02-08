@@ -48,7 +48,7 @@
     position: absolute;
     left: calc(50% + 180px);
     top: 280px;
-    z-index: 99;
+    // z-index: 99;
     cursor: pointer;
 }
 
@@ -68,6 +68,18 @@
         font-size: 13px;
         text-indent: 32px;
     } 
+
+    .closeCTA {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 40px;
+        height: 40px;
+        background: url(/plus.svg);
+        transform: rotate(45deg);
+        border-radius: 99px;
+        background-size: cover;
+    }
 }
 
 @include tablet {
@@ -196,19 +208,28 @@
     .descCTA {
         left: unset;
         right: 40px;
-        top: 170px;
+        top: 24%;
         width: 40px;
         height: 40px;
         background-size: contain;
+    }
+    
+    .closeCTA {
+        position: absolute;
+        top: calc(50% - 170px);
+        right: calc(20% - 60px);
+        width: 40px;
+        height: 40px;
+        background: url(/plus.svg);
+        transform: rotate(45deg);
+        border-radius: 99px;
+        background-size: cover;
+        z-index: 10;
     }
 
     .desc {
         padding: 20px;
         width: 80%;
-        position: absolute;
-        left: 50%;
-        top: 220px;
-        transform: translate(-50%, 0);
         max-height: 300px;
         overflow: scroll;
     

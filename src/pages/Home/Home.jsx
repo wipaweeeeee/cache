@@ -4,8 +4,6 @@ import styles from './styles.module.scss';
 import Airtable from 'airtable';
 import { easeIn, motion } from 'framer-motion';
 
-//TODO: add modal to add email on mobile instead to avoid keyboard push bug
-
 const Home = () => {
 
     const [email, setEmail] = useState('');
@@ -93,7 +91,7 @@ const Home = () => {
     const scrimVariant = {
         open: {
             opacity: 1,
-            zIndex: 2,
+            zIndex: 1,
             transition: {
                 duration: 0.25,
                 easing: easeIn
@@ -123,10 +121,28 @@ const Home = () => {
         }, 
         close: {
             opacity: 0,
-            zIndex: -1,
-            scale: 0,
+            scale: 0.5,
             x: '-50%',
             y: '-50%',
+            transition: {
+                duration: 0.25,
+                easing: easeIn
+            },
+            transitionEnd: { zIndex: -1 }
+        }
+    }
+
+    const descCTAVariant = {
+        show: {
+            opacity: 1,
+            transition: {
+                duration: 0.25,
+                easing: easeIn,
+                delay: 0.5
+            }
+        },
+        hide: {
+            opacity: 0,
             transition: {
                 duration: 0.25,
                 easing: easeIn
@@ -134,15 +150,56 @@ const Home = () => {
         }
     }
 
+    const descCTAVariantMob = {
+        open: {
+            opacity: 1,
+            zIndex: 10,
+            rotate: 45,
+            transition: {
+                duration: 0.25,
+                easing: easeIn,
+                delay: 0.25
+            }
+        }, 
+        close: {
+            opacity: 0,
+            rotate: 45,
+            transition: {
+                duration: 0.25,
+                easing: easeIn
+            },
+            transitionEnd: { zIndex: -1 }
+        }
+    }
+
     return (
         <div>
-            <div className={styles.descCTA} onClick={() => setOpenDesc(!openDesc)}/>
+            <motion.div 
+                className={styles.descCTA} 
+                initial={false}
+                variants={descCTAVariant}
+                animate={openDesc ? 'hide' : 'show'}
+                onClick={() => setOpenDesc(true)}
+            />
+            {
+               mobile && 
+               <motion.div 
+                    className={styles.closeCTA} 
+                    onClick={() => setOpenDesc(false)}
+                    initial={false}
+                    variants={descCTAVariantMob}
+                    animate={openDesc ? 'open' : 'close'}
+                />
+            }
             <motion.div 
                 className={styles.desc}
                 initial={false}
                 variants={descVariant}
                 animate={openDesc ? 'open' : 'close'}
             >
+            {
+               !mobile && <div className={styles.closeCTA} onClick={() => setOpenDesc(false)}/>
+            }
                 <p>
                     SHIFT brings together the varied work of five emerging artists and technologists originally from Thailand to demonstrate that neither art nor technology can be understood through just one perspective and audience. Instead of technology being the sole property of nerds, tech bros, venture capitalists, could it instead function as a softer, artistic canvas to express something painful, moving, or strange? Instead of art being a conversation solely between painters, hipsters, gallerists, and collectors, what can those fluent in the language of technology bring to the conversation?
                 </p>
