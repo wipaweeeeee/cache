@@ -99,7 +99,7 @@ const Home = () => {
         }, 
         close: {
             opacity: 0,
-            zIndex: -1,
+            zIndex: -3,
             transition: {
                 duration: 0.25,
                 easing: easeIn
