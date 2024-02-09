@@ -70,6 +70,39 @@
         }
     }
     
+    .contact {
+        margin-top: 80px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .column {
+            display: flex;
+            flex-direction: column;
+
+            p, a {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            &:first-of-type {
+                margin-right: 32px;
+            }
+        }
+
+        .press {
+            margin-top: 18px;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+
+            a {
+                font-style: italic;
+                text-decoration: underline;
+            }
+        }
+
+    }
+
     .marquee {
         position: fixed;
         bottom: 0;

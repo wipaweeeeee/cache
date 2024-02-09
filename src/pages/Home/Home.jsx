@@ -216,7 +216,7 @@ const Home = () => {
                 <div className={styles.close} onClick={() => setOpenModal(false)}>~ Close ~</div>
                 <div className={styles.socialContainer}>
                     <a href="https://www.instagram.com/thisis.cache/" className={styles.social} target='_blank'>Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=61556069831789" className={styles.social} target='_blank'>Facebook</a>
+                    <a href="https://www.facebook.com/thisis.cache" className={styles.social} target='_blank'>Facebook</a>
                 </div>
                 <div className={styles.form}>
                     <input type="email" pattern=".+@example\.com" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} value={email}/> 
@@ -251,7 +251,7 @@ const Home = () => {
                 !mobile &&
                 <div className={styles.socialContainer}>
                     <a href="https://www.instagram.com/thisis.cache/" className={styles.social} target='_blank'>Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=61556069831789" className={styles.social} target='_blank'>Facebook</a>
+                    <a href="https://www.facebook.com/thisis.cache" className={styles.social} target='_blank'>Facebook</a>
                 </div>
             }
            

@@ -3,6 +3,7 @@
     top: 32px;
     left: 40px;
     cursor: pointer;
+    z-index: 2;
 }
 
 @include mobile { 

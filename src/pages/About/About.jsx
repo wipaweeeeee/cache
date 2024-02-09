@@ -78,7 +78,19 @@ const About = () => {
                         { submitted && <div className={styles.status}>{ error ? 'Uh oh, not a valid email' : 'Thank you for your interest :)'}</div>}
                     </div>
                 </div>
-                
+            </div>
+            <div className={styles.contact}>
+                <div className={styles.column}>
+                    <p>Email:</p>
+                    <p>Instagram:</p>
+                    <p>Facebook:</p>
+                </div>
+                <div className={styles.column}>
+                    <a href="mailto:hello@thisiscache.com">hello@thisiscache.com</a>
+                    <a href="https://www.instagram.com/thisis.cache/">@thisis.cache</a>
+                    <a href="https://www.facebook.com/thisis.cache">facebook.com/thisis.cache</a>
+                </div>
+                <div className={styles.press}>For press kit, click <a href="https://drive.google.com/drive/folders/1k3_orO0io-klPI8J5SAyhZe15zp6srDx?usp=sharing" target="_blank">here.</a></div>
             </div>
             <div className={styles.marquee}>
                 <Marquee autoFill speed={30}>
