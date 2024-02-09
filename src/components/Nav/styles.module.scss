@@ -4,6 +4,8 @@
     align-items: flex-start;
     justify-content: center;
     width: 100%;
+    position: fixed;
+    top: 40px;
 
     .nav {
         background-color: white;
@@ -82,6 +84,8 @@
 @include mobile {
     .navContainer { 
         justify-content: right;
+        top: 32px;
+        width: calc(100% - 40px);
 
         .nav {
             min-height: 40px;

@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const options = [
     { title: 'Home', path: '/'},
     { title: 'Info', path: '/info'},
-    { title: 'Archive', path: '/archive'},
+    // { title: 'Archive', path: '/archive'}, //update height below when add this
 ];
 
 const Nav = () => {
@@ -21,7 +21,7 @@ const Nav = () => {
 
     const itemsVariant = {
         open: {
-            height: [0, 106, 106],
+            height: [0, 80, 80],
             opacity: [0, 0, 1],
             marginTop: [0, 60, 60],
             transition: {
@@ -30,7 +30,7 @@ const Nav = () => {
             }
         },
         close: {
-            height: [106, 106, 0],
+            height: [80, 80, 0],
             opacity: [1, 0, 0],
             marginTop: [60, 60, 0],
             transition: {
