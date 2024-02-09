@@ -214,11 +214,16 @@ const Home = () => {
                 animate={ openModal && mobile ? 'open' : 'close'}
             >
                 <div className={styles.close} onClick={() => setOpenModal(false)}>~ Close ~</div>
+                <div className={styles.socialContainer}>
+                    <a href="https://www.instagram.com/thisis.cache/" className={styles.social} target='_blank'>Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61556069831789" className={styles.social} target='_blank'>Facebook</a>
+                </div>
                 <div className={styles.form}>
                     <input type="email" pattern=".+@example\.com" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} value={email}/> 
                     <div className={styles.arrow} onClick={handleSignup}/>
                 </div>
                 { submitted && <div className={styles.status}>{ error ? 'Uh oh, not a valid email' : 'Thank you! See you soon :)'}</div>}
+                
             </motion.div>
             <Scene />
             {
@@ -242,6 +247,14 @@ const Home = () => {
                 animate={ openModal ? 'open' : 'close'}
                 onClick={() => setOpenModal(false)}
             />
+            {
+                !mobile &&
+                <div className={styles.socialContainer}>
+                    <a href="https://www.instagram.com/thisis.cache/" className={styles.social} target='_blank'>Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61556069831789" className={styles.social} target='_blank'>Facebook</a>
+                </div>
+            }
+           
         </div>
     )
 }
