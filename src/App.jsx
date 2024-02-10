@@ -11,7 +11,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="archive" element={<Archive />} />
       <Route path="info" element={<About />} />
-      <Route path="wildcard" element={<About />} />
+      <Route path="wildcard" element={<Wildcard />} />
     </Route>
   )
 )
