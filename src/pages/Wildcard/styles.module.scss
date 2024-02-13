@@ -60,8 +60,12 @@
             outline: none;
             border: 1px solid black;
             border-radius: 99px;
-            background-color: white;
-            color: black;
+            background-color: rgba(white, 1);
+            color: rgba(black, 1);
+
+            &:disabled {
+                background-color: rgba(white, 0.5);
+            }
         }
     }
 }

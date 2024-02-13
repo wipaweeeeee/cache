@@ -48,5 +48,80 @@ export const data = [
                 content: 'option 5'
             }
         ]
+    },
+    {
+        question: 'question 3',
+        options: [
+            {
+                category: 'option 1',
+                content: 'option 1'
+            },
+            {
+                category: 'option 2',
+                content: 'option 2'
+            },
+            {
+                category: 'option 3',
+                content: 'option 3'
+            },
+            {
+                category: 'option 4',
+                content: 'option 4'
+            },
+            {
+                category: 'option 5',
+                content: 'option 5'
+            }
+        ]
+    },
+    {
+        question: 'question 4',
+        options: [
+            {
+                category: 'option 1',
+                content: 'option 1'
+            },
+            {
+                category: 'option 2',
+                content: 'option 2'
+            },
+            {
+                category: 'option 3',
+                content: 'option 3'
+            },
+            {
+                category: 'option 4',
+                content: 'option 4'
+            },
+            {
+                category: 'option 5',
+                content: 'option 5'
+            }
+        ]
+    },
+    {
+        question: 'question 5',
+        options: [
+            {
+                category: 'option 1',
+                content: 'option 1'
+            },
+            {
+                category: 'option 2',
+                content: 'option 2'
+            },
+            {
+                category: 'option 3',
+                content: 'option 3'
+            },
+            {
+                category: 'option 4',
+                content: 'option 4'
+            },
+            {
+                category: 'option 5',
+                content: 'option 5'
+            }
+        ]
     }
 ]

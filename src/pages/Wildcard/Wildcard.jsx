@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import classNames from 'classnames';
@@ -8,8 +8,29 @@ const Wildcard = () => {
 
     const [ show, setShow ] = useState(0);
     const [score, setScore] = useState([]);
-    const [currOption, setCurrOption] = useState();
-    const max = 3;
+    const [currOption, setCurrOption] = useState('');
+    const [loading, setLoading] = useState();
+    const max = 5;
+
+    const handleResult = () => {
+        console.log(score)
+    }
+
+    useEffect(() => {
+
+        let timer;
+        setLoading(true);
+
+        if (show == max) {
+           timer = setTimeout(() => {
+            setLoading(false);
+            handleResult();
+           },[ 500 ])
+        }
+
+        return () => clearTimeout(timer);
+
+    }, [show])
     
     const questions = data && data.map((item, index) => {
 
@@ -45,20 +66,52 @@ const Wildcard = () => {
         )
     })
 
+    console.log(show)
+    //TODO: remove option if hit previous? 
+    //TODO: handle results......
+
     return (
         <div className={styles.quizContainer}>
             {questions}
-            <div className={styles.controllers}>
+            <motion.div 
+                className={styles.controllers}
+                animate={ show >= max ? { opacity: 0, transitionEnd: { display: 'none' }} : { opacity: 1 }}
+            >
                 <button className={styles.button} onClick={() => setShow(show <= 0 ? show : show - 1)}>Prev</button>
                 <button 
+                    disabled={currOption == '' ? true : false} 
                     className={styles.button} 
                     onClick={() => {
                         setShow(show < max ? show + 1 : show);
                         setCurrOption('');
-                        setScore(currOption); //this is wrong rn
+                        setScore(score => [...score, currOption]); 
                     }}
                 >Next</button>
-            </div>
+            </motion.div>
+            <AnimatePresence>
+                { show == max && loading && (
+                    <motion.div
+                        key="loader"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        loading
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            <AnimatePresence>
+                { show == max && !loading && (
+                    <motion.div
+                        key="result"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        {score}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     )
 }
