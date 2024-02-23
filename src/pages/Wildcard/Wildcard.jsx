@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import classNames from 'classnames';
-import { data } from './data';
+import { data, answer } from './data';
 
 const Wildcard = () => {
 
@@ -10,12 +10,44 @@ const Wildcard = () => {
     const [score, setScore] = useState([]);
     const [currOption, setCurrOption] = useState('');
     const [loading, setLoading] = useState();
-    const max = 5;
+    const [winner, setWinner] = useState();
+    const [result, setResult] = useState();
+    const max = 6;
 
     const handleResult = () => {
-        console.log(score)
+        
+        function getOccurrence(array, value) {
+            return array.filter((v) => (v === value)).length;
+        }
+
+        let results = [];
+        score.forEach(item => {
+            let scoreCount = getOccurrence(score, item);
+            results.push({option: item, count: scoreCount})
+        })
+
+       let resultOrder = results.sort((a, b) => b.count - a.count);
+       let uniqueSet = resultOrder.filter((obj, index) => {
+        return index === resultOrder.findIndex(o => obj.option === o.option)
+       })
+        
+       if (uniqueSet[0].count == uniqueSet[1].count) {
+
+        //absolute winner
+        if (uniqueSet[0].option == uniqueSet[1].option) {
+            setWinner(uniqueSet[0].option);
+        } 
+        //no specific choice; result lukewarm answer
+        else {
+            setWinner('medium');
+        }
+       } else {
+        setWinner(uniqueSet[0].option);
+       }
+
     }
 
+    //handle show next question
     useEffect(() => {
 
         let timer;
@@ -66,12 +98,14 @@ const Wildcard = () => {
         )
     })
 
-    console.log(show)
     //TODO: remove option if hit previous? 
-    //TODO: handle results......
 
     return (
         <div className={styles.quizContainer}>
+            <div className={styles.title}>
+                <div>ตามหา “พลิก” ในตัวคุณ </div>
+                <div>รู้หรือไม่ ในตัวคุณอาจมี “พลิก” แอบซ่อนอยู่ มาลองตามหาพลิกของคุณกันเลย</div>
+            </div>
             {questions}
             <motion.div 
                 className={styles.controllers}
@@ -107,8 +141,17 @@ const Wildcard = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        className={styles.result}
                     >
-                        {score}
+                        <div>
+                            {answer.filter(item => item.category == winner)[0].title}
+                        </div>
+                        <div>
+                            {answer.filter(item => item.category == winner)[0].content}
+                        </div>
+                        <div className={styles.closer}>
+                            ถ้าอยากตามหา “พลิก” แบบใหม่ที่คุณไม่เคยเห็นมาก่อน มาพบกันได้ที่งาน “พลิก[SHIFT] by cache” ที่จะทำพลิกกำแพงระหว่างโลกเทคโนโลยีและศิลปะให้มาอยู่ด้วยกัน แบบแยกไม่ออก 
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -1,127 +1,156 @@
 export const data = [
     {
-        question: 'question 1',
+        question: 'ตอนตื่นเช้า เห็นเงาตัวเองในกระจกคุณจะพูดว่า…',
         options: [
             {
                 category: 'option 1',
-                content: 'option 1'
+                content: 'กระจกวิเศษบอกข้าเถิดใครงามเลิศในปฐพี'
             },
             {
                 category: 'option 2',
-                content: 'option 2'
+                content: 'ไม่พูด ล้างหน้า แปรงฟันเลย '
             },
             {
                 category: 'option 3',
-                content: 'option 3'
+                content: 'กรี๊ด หน้าโทรมขนาดนี้ ไปฉีดโบเถอะขอร้อง'
             },
             {
                 category: 'option 4',
-                content: 'option 4'
-            },
-            {
-                category: 'option 5',
-                content: 'option 5'
+                content: 'หรือว่านี่จะเป็นประตูข้ามมิติ ทวิภพ'
             }
         ]
     },
     {
-        question: 'question 2',
+        question: 'ก่อนจะหยิบแปรงสีฟันขึ้นมาแปรง คุณเหลือบไปเห็นแมลงสาบเดินออกมา เซย์ ฮัลโหล คุณจะ…',
         options: [
             {
+                category: 'option 3',
+                content: 'ตบแมลงสาบด้วยมือเปล่า แล้วโยนลงชักโครก'
+            },
+            {
                 category: 'option 1',
-                content: 'option 1'
+                content: 'สวัสดีเจ้าเพื่อนตัวน้อย มาแปรงฟันด้วยกันเถอะ'
             },
             {
                 category: 'option 2',
-                content: 'option 2'
-            },
-            {
-                category: 'option 3',
-                content: 'option 3'
+                content: 'ตกใจ จนแมลงสาบหนีไป'
             },
             {
                 category: 'option 4',
-                content: 'option 4'
+                content: 'ได้แรงบันดาลใจในการทำปลอกแปรงสีฟันกันแมลงสาบ'
+            },
+        ]
+    },
+    {
+        question: 'ขณะกำลังเดินเพลินๆ ออกจากบ้าน บังเอิญเดินสะดุดทางเท้าคุณจะ….',
+        options: [
+            {
+                category: 'option 2',
+                content: 'น้ำเน่าจากพื้นดีดใส่ขา'
             },
             {
-                category: 'option 5',
-                content: 'option 5'
+                category: 'option 3',
+                content: 'จวกรัฐบาลให้ยับ'
+            },
+            {
+                category: 'option 4',
+                content: 'ปิ๊ง ไอเดีย ทำรองเท้ากันสะดุด'
+            },
+            {
+                category: 'option 1',
+                content: 'ล้มสิคะ รออะไร'
+            },
+        ]
+    },
+    {
+        question: 'เมื่อถึงที่ทำงาน ฆ่าศึกดันบุกซะงั้น คุณรีบวิ่งไปเข้าห้องน้ำแต่ทิชชู่ในห้องน้ำดันหมด คุณจะ….',
+        options: [
+            {
+                category: 'option 1',
+                content: 'ไม่เป็นไรค่ะ พกมา พื้นฐานเป็นคนเตรียมพร้อม'
+            },
+            {
+                category: 'option 4',
+                content: 'ประดิษฐ์ของอย่างอื่นมาใช้แทนทิชชู่ '
+            },
+            {
+                category: 'option 3',
+                content: 'อดทน แล้วลองหาห้องอื่น หรือ วิ่งไปยืมเพื่อน'
+            },
+            {
+                category: 'option 2',
+                content: 'ไม่เช็ด อย่างมั่นใจ พร้อมก่นด่าแม่บ้านในใจ ว่าทำไมไม่เติมทิชชู่'
             }
         ]
     },
     {
-        question: 'question 3',
+        question: 'ระหว่างอยู่ในห้องน้ำ คุณบังเอิญได้ยินเสียงเพื่อนร่วมงานกำลังเม้าคุณ คุณจะตอบกลับไปว่า…',
         options: [
             {
                 category: 'option 1',
-                content: 'option 1'
+                content: 'ขอบคุณนะคะ ที่กล้าจะสอนหนู',
             },
             {
                 category: 'option 2',
-                content: 'option 2'
+                content: 'ไม่ตอบ แล้วไงใครแคร์',
             },
             {
                 category: 'option 3',
-                content: 'option 3'
+                content: 'ไม่มีใครเก่งเท่า มึง และ แม่มึงแล้วค่ะ !',
             },
             {
                 category: 'option 4',
-                content: 'option 4'
-            },
-            {
-                category: 'option 5',
-                content: 'option 5'
+                content: 'ทำงานให้ดีกว่า แล้วเอาไปตอกหน้าเพื่อนคนนั้น'
             }
         ]
     },
     {
-        question: 'question 4',
+        question: 'แม้วันนี้จะเป็นวันที่สุดหรรษา ที่ดูดวงไม่เข้าข้างเอาเสียเลย คุณจะ…',
         options: [
             {
-                category: 'option 1',
-                content: 'option 1'
+                category: 'option 3',
+                content: 'ไม่ไหวแล้วโว้ยยยย!!!! ต้องไปร้องคาราโอเกะ ระบายอารมณ์',
             },
             {
                 category: 'option 2',
-                content: 'option 2'
-            },
-            {
-                category: 'option 3',
-                content: 'option 3'
+                content: 'ไปไหว้พระ แก้ชง แล้วขอหวย',
             },
             {
                 category: 'option 4',
-                content: 'option 4'
+                content: 'เอามาเป็นพลัง ผุดเป็นโครงการร้อยล้านโปรเจ็ค ',
             },
-            {
-                category: 'option 5',
-                content: 'option 5'
-            }
-        ]
-    },
-    {
-        question: 'question 5',
-        options: [
             {
                 category: 'option 1',
-                content: 'option 1'
-            },
-            {
-                category: 'option 2',
-                content: 'option 2'
-            },
-            {
-                category: 'option 3',
-                content: 'option 3'
-            },
-            {
-                category: 'option 4',
-                content: 'option 4'
-            },
-            {
-                category: 'option 5',
-                content: 'option 5'
+                content: 'สู้ต่อไป โลกนี้จะต้องใจดีกับเราแน่ๆเลยเตง'
             }
         ]
     }
+]
+
+export const answer = [ 
+    {
+        category: 'option 1',
+        title: 'พลิกหวาน',
+        content: 'แม้ข้างนอกจะดูเป็นอย่างไร แต่ข้างในคุณคือนางเอก! เป็นพริกแต่ดันไม่เผ็ด แถมมีใยอาหารสูง ประโยชน์เหลือล้น แม้คนจะมองไม่ค่อยเห็นแล้วเขี่ยออกจากจาน แต่คุณก็ยังมองโลกในแง่ดีทุกปัญหามีทางออก เวลาใครอยู่ใกล้ก็มีความสุขตามไปด้วย'
+    },
+    {
+        category: 'option 2',
+        title: 'พลิกน้ำปลา',
+        content: 'มนุษย์ติดดิน อยู่กับความจริง เข้ากับคนง่าย กินกับอะไรก็อร่อย แต่ถ้าเป็นเรื่องต้องเถียงกับคน คุณพร้อมจะยกตรรกะทั้งโลกมาสู้ให้ชนะ โดยเฉพาะในหัวข้อ “พริกน้ำปลา VS น้ำปลาพริก”'
+    },
+    {
+        category: 'option 3',
+        title: 'พลิกแกง',
+        content: 'เผ็ชแซ่บกว่าใคร ทั้งแสบทั้งร้อน แต่ก็ขาดไม่ได้ เพราะว่า ไม่มีแล้วมันไม่อร่อย! เรื่องไม่ยอมคนขอให้บอก พร้อมสู้ พูดตรงไม่สนใจใคร แต่มั่นใจได้ว่าที่พูดมาเรื่องจริงไม่โกหกแน่นอน!'
+    },
+    {
+        category: 'option 4',
+        title: 'พลิกแพลง',
+        content: 'โดดเด่น ไม่ซ้ำใคร พลิกวิกฤตเป็นโอกาสได้เสมอ จนบางทีคนอื่นอาจจะคิดว่าแปลก แต่คนแพงๆแบบเรา ทำอะไรก็แพง หาได้แคร์ไม่ เอาไปเป็นพลังสร้างงานสุดล้ำออกมาจนได้ !'
+    },
+    {
+        category: 'medium',
+        title: 'พลิก confused',
+        content: 'some text here about how they are a mixed of all spices'
+    },
 ]
