@@ -38,7 +38,7 @@ const Info = ({ label, firstLine, secondLine, order, windowWidth }) => {
     },[windowWidth])
 
     const fontProps = { 
-        font: '/fonts/self-modern_italic_trial.woff', 
+        font: '/fonts/self-modern_italic.woff', 
         fontSize: fontSize, 
         letterSpacing: -0.05, 
         lineHeight: 1, 
