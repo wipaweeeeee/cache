@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
     "react-router-dom": "^6.21.3",
+    "recoil": "^0.7.7",
     "sass": "^1.70.0",
     "three": "^0.160.1"
   },

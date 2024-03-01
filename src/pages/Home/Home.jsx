@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import Scene from '@/components/Scene';
 import styles from './styles.module.scss';
 import Airtable from 'airtable';
-import { easeIn, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useLangState from '@/atoms/language_atom';
+import { data } from './content';
 
 const Home = () => {
 
@@ -15,6 +17,9 @@ const Home = () => {
 
     const base = new Airtable({apiKey: `${import.meta.env.VITE_AIRTABLE_API_KEY}`}).base(`${import.meta.env.VITE_AIRTABLE_BASE_ID}`);
     const table = base('signups');
+
+    const [{lang}] = useLangState();
+    let content = data[lang];
 
     useEffect(() => {
 
@@ -75,7 +80,7 @@ const Home = () => {
             opacity: 1,
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             }
         }, 
         close: {
@@ -83,7 +88,7 @@ const Home = () => {
             opacity: 0,
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             }
         }
     }
@@ -94,7 +99,7 @@ const Home = () => {
             zIndex: 1,
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             }
         }, 
         close: {
@@ -102,7 +107,7 @@ const Home = () => {
             zIndex: -3,
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             }
         }
     }
@@ -116,7 +121,7 @@ const Home = () => {
             y: '-50%',
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             }
         }, 
         close: {
@@ -126,7 +131,7 @@ const Home = () => {
             y: '-50%',
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             },
             transitionEnd: { zIndex: -1 }
         }
@@ -137,7 +142,7 @@ const Home = () => {
             opacity: 1,
             transition: {
                 duration: 0.25,
-                easing: easeIn,
+                easing: 'easeIn',
                 delay: 0.5
             }
         },
@@ -145,7 +150,7 @@ const Home = () => {
             opacity: 0,
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             }
         }
     }
@@ -157,7 +162,7 @@ const Home = () => {
             rotate: 45,
             transition: {
                 duration: 0.25,
-                easing: easeIn,
+                easing: 'easeIn',
                 delay: 0.25
             }
         }, 
@@ -166,7 +171,7 @@ const Home = () => {
             rotate: 45,
             transition: {
                 duration: 0.25,
-                easing: easeIn
+                easing: 'easeIn'
             },
             transitionEnd: { zIndex: -1 }
         }
@@ -200,12 +205,8 @@ const Home = () => {
             {
                !mobile && <div className={styles.closeCTA} onClick={() => setOpenDesc(false)}/>
             }
-                <p>
-                    SHIFT brings together the varied work of five emerging artists and technologists originally from Thailand to demonstrate that neither art nor technology can be understood through just one perspective and audience. Instead of technology being the sole property of nerds, tech bros, venture capitalists, could it instead function as a softer, artistic canvas to express something painful, moving, or strange? Instead of art being a conversation solely between painters, hipsters, gallerists, and collectors, what can those fluent in the language of technology bring to the conversation?
-                </p>
-                <p>
-                    The work in this show probes and plays with these dynamics through new ideas, deviant strategies, and absurd forms of technology, code, and pixels — proving that technology can be a fertile canvas used to challenge and critique our interaction with daily life, question the notion of beauty, challenge the concept of time, or have no meaningful 'functionality' at all.
-                </p>
+                <p>{content.desc1}</p>
+                <p>{content.desc2}</p>
             </motion.div>
             <motion.div 
                 className={styles.modalContainer}

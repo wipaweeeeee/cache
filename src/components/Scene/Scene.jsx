@@ -35,7 +35,7 @@ const Scene = () => {
                     <Model windowWidth={windowWidth} />
                     <Bg />
                     <Info windowWidth={windowWidth} label={"Location"} firstLine={"1559"} secondLine={"SPACE"} order={'one'}/>
-                    <Info windowWidth={windowWidth} label={"Date"} firstLine={"4-8"} secondLine={"APRIL"} order={'two'}/>
+                    <Info windowWidth={windowWidth} label={"Date"} firstLine={"4-15"} secondLine={"APRIL"} order={'two'}/>
                     <Info windowWidth={windowWidth} label={"Time"} firstLine={"13:00-"} secondLine={"21:00"} order={'three'}/>
                     <Environment files={'/models/warehouse.hdr'} />
                 </Suspense>

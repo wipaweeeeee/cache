@@ -71,13 +71,24 @@
             width: 46px;
             height: 46px;
             border-radius: 99px;
-            background-color: white;
+            background-color: #ffffff;
+            color: #000000;
             border: 1px solid black;
             margin-left: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+
+            &:hover {
+                background-color: #000000;
+                color: #ffffff;
+            }
+
+            &.selected {
+                background-color: #000000;
+                color: #ffffff;
+            }
         }
     }
 }

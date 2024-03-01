@@ -1,0 +1,11 @@
+export const data = {
+    en: {
+        desc1: "SHIFT brings together the varied work of five emerging artists and technologists originally from Thailand to demonstrate that neither art nor technology can be understood through just one perspective and audience. Instead of technology being the sole property of nerds, tech bros, venture capitalists, could it instead function as a softer, artistic canvas to express something painful, moving, or strange? Instead of art being a conversation solely between painters, hipsters, gallerists, and collectors, what can those fluent in the language of technology bring to the conversation?",
+        desc2: "The work in this show probes and plays with these dynamics through new ideas, deviant strategies, and absurd forms of technology, code, and pixels — proving that technology can be a fertile canvas used to challenge and critique our interaction with daily life, question the notion of beauty, challenge the concept of time, or have no meaningful 'functionality' at all.",
+    },
+    th: {
+        desc1: "การรวมตัวของศิลปินในคราบนักเทคโนโลยีชาวไทยทั้ง 5 คน ที่มุ่งทลายกรอบเดิมระหว่างโลกของศิลปะกับโลกเทคโนโลยีให้ผสมกลมกลืนจนแทบแยกไม่ออก ศิลปะหรือเทคโนโลยีจำเป็นต้องถูกเสพย์สมจากแค่คนกลุ่มเดิมๆเท่านั้นจริงหรือ? ลองลืมภาพจำเทคโนโลยีที่ผูกขาดโดยเหล่าชาวเนิร์ด หนุ่มเทคสุดคูล หรือนักลงทุนสุดเนี้ยบไปก่อน เพราะเทคโนโลยีก็เป็นเสมือนผืนผ้าใบว่างเปล่าให้ถ่ายทอดอารมณ์เจ็บปวดรวดร้าว ซึ้งโศก เร้าอารมณ์ หรือแม้แต่แปลกประหลาดได้เหมือนกัน ในขณะเดียวกันศิลปะก็ไม่ต้องจำกัดวงคุยเฉพาะกลุ่มศิลปิน ฮิปสเตอร์ เจ้าของแกลเลอรี่ หรือนักสะสมอีกต่อไป คนพูดจาภาษาเทคก็ร่วมเป็นส่วนหนึ่งในบทสนทนาที่แสนทรงพลังนี้ได้เช่นกัน", 
+        desc2: "พลิก จะพาคุณไปทดลองสำรวจและเล่นสนุกไปกับเหล่าไอเดียสุดแหวกกรอบ กลวิธีแปลกประหลาด ความพิกลของเทคโนโลยี ในทุกบรรทัดของโค้ด เหล่าจุดพิกเซลที่เรียงตัว ล้วนพิสูจน์ให้เห็นว่าเทคโนโลยีก็เป็นดุจผืนผ้าใบไร้ขีดจำกัด ที่จะชวนท้าทาย วิจารณ์ชีวิตประจำวันที่คุ้นเคย ตั้งคำถามถึงความงาม สั่นคลอนแนวคิดของเวลา หรือเป็นไปได้ไหม ถ้าเทคโนโลยีจะไร้ “ประโยชน์หน้าที่” อย่างที่มันควรจะเป็น นอกจากนี้พลิก ยังแอบซ่อนกลิ่นอายของชีวิตประจำวันในกรุงเทพฯ อย่างแยบยลแต่ชัดเจน และถือเป็นอีเวนต์แรกจากกลุ่มศิลปิน CACHE กลุ่มศิลปินมัลติมีเดีย ที่มุ่งกระตุ้นความใคร่รู้ในเทคโนโลยี ผ่านเลนส์ศิลปะอิเล็กทรอนิกส์", 
+    }
+    
+}

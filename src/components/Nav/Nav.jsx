@@ -3,13 +3,12 @@ import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { motion } from 'framer-motion';
-
-//TODO: add recoil to manage language state
+import useLangState from '@/atoms/language_atom';
 
 const options = [
     { title: 'Home', path: '/'},
     { title: 'Info', path: '/info'},
-    { title: '???', path: '/wildcard'},
+    // { title: '???', path: '/wildcard'},
     // { title: 'Archive', path: '/archive'}, //update height below when add this
 ];
 
@@ -20,9 +19,11 @@ const Nav = () => {
     const location = useLocation();
     const { pathname } = location;
 
+    const [{lang}, setLangState] = useLangState();
+
     const itemsVariant = {
         open: {
-            height: [0, 120, 120],//[0, 80, 80],
+            height: [0, 80, 80], //[0, 120, 120],
             opacity: [0, 0, 1],
             marginTop: [0, 60, 60],
             transition: {
@@ -31,7 +32,7 @@ const Nav = () => {
             }
         },
         close: {
-            height: [120, 120, 0],//[80, 80, 0],
+            height: [80, 80, 0], //[120, 120, 0]
             opacity: [1, 0, 0],
             marginTop: [60, 60, 0],
             transition: {
@@ -74,8 +75,14 @@ const Nav = () => {
                 </motion.ul>
             </div>
             <div className={styles.languageContainer}>
-                <div className={styles.option}>EN</div>
-                <div className={styles.option}>TH</div>
+                <div 
+                    className={classNames(styles.option, {[styles.selected] : lang == 'en'})} 
+                    onClick={() => setLangState((states) => ({...states, lang: 'en'}))}
+                >EN</div>
+                <div
+                    className={classNames(styles.option, {[styles.selected] : lang == 'th'})} 
+                    onClick={() => setLangState((states) => ({...states, lang: 'th'}))}
+                >TH</div>
             </div>
         </div>
     )
