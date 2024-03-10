@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState, useRef } from 'react';
 import { Environment, ScrollControls, Scroll } from "@react-three/drei";
 import styles from './styles.module.scss';
 import Model from './Model';
@@ -25,8 +25,21 @@ const Scene = ({ posY }) => {
 
     const [{lang}] = useLangState();
     let content = data[lang];
+
+    const test = useRef();
     
     useEffect(() => {
+
+        let timer;
+        if (window.location.hash == '#rsvp-salon') {
+            timer = setTimeout(() => {
+                window.location.href = "http://localhost:5173/#rsvp-salon";
+            }, 500)
+        } else if (window.location.hash == '#rsvp-open-projector') {
+            timer = setTimeout(() => {
+                window.location.href = "http://localhost:5173/#rsvp-open-projector";
+            }, 500)
+        }
 
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
@@ -43,6 +56,7 @@ const Scene = ({ posY }) => {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            clearTimeout(timer);
         };
     },[])
 
@@ -95,7 +109,7 @@ const Scene = ({ posY }) => {
 
     const specialEvents = content.specialEvents.map((item, index) => {
         return (
-            <div className={styles.detailsContainer} id={item.id} key={index}>
+            <div className={styles.detailsContainer} id={item.id} key={index} ref={test}>
                 <div className={styles.header}>
                     <div className={styles.tag}>Special Program 0.{index + 1}</div>
                     <div className={styles.link} onClick={() => { navigator.clipboard.writeText(item.url); setCopied(item.id)}}>🔗</div>
@@ -129,7 +143,7 @@ const Scene = ({ posY }) => {
         <div className={styles.canvas}>
             <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
                 <Suspense fallback={null}>
-                    <ScrollControls pages={mobile ? 4.4 : 3.5} damping={0.1}>
+                    <ScrollControls pages={mobile ? 4.4 : 3.5} damping={0.1} scrollTo={200}>
                         <Scroll>
                             <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
                             <Shift windowWidth={windowWidth} />
