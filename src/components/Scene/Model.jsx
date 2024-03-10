@@ -19,15 +19,12 @@ export default function Model({ windowWidth, posY }) {
     if (scrolling) {
       if (scrollY == 'down') {
         mesh.current.rotation.y += delta * 1.5;
-        // mesh.current.rotation.x -= delta * 0.5;
       } else {
         mesh.current.rotation.y -= delta * 1.5;
-        // mesh.current.rotation.x += delta * 0.5;
       }
       
     } else {
       mesh.current.rotation.y += delta * 0.02;
-      // mesh.current.rotation.x -= delta * 0.02;
     }
   })
 
