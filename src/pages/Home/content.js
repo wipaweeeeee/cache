@@ -1,11 +1,52 @@
 export const data = {
     en: {
-        desc1: "SHIFT brings together the varied work of five emerging artists and technologists originally from Thailand to demonstrate that neither art nor technology can be understood through just one perspective and audience. Instead of technology being the sole property of nerds, tech bros, venture capitalists, could it instead function as a softer, artistic canvas to express something painful, moving, or strange? Instead of art being a conversation solely between painters, hipsters, gallerists, and collectors, what can those fluent in the language of technology bring to the conversation?",
-        desc2: "The work in this show probes and plays with these dynamics through new ideas, deviant strategies, and absurd forms of technology, code, and pixels — proving that technology can be a fertile canvas used to challenge and critique our interaction with daily life, question the notion of beauty, challenge the concept of time, or have no meaningful 'functionality' at all.",
+        p1: "Shift by Cache Collective will take you on a journey to 'shift' perspectives on ordinary objects and daily life through absurd interactive art pieces by five creative technologists & multimedia artists. The five creations are both meaningful and meaningless, containing stories told through lines of code, algorithms, and electrical circuitry to stimulate thoughts and invite viewers to question everything around them, from abstract concepts to urban design, leading to discussions on ways of life, social issues, and the essence of art and technology.",
+        h1: "Join us!",
+        p2: "April 4–15, 1pm-9pm daily at 1559 Space , Bangkok, Thailand",
+        specialEvents: [
+            {
+                title: "Salon",
+                type: "salon",
+                id: "rsvp-salon",
+                desc: "An intimate afternoon where artists peel back the layers of their creations. Step into the artists' realm as they share insights, inspirations, and the essence of their interactive pieces with Nottapon Boonprakob as moderator.",
+                date: "April 7, 2024",
+                time: "11am-1pm",
+                url: "https://thisiscache.com/#rsvp-salon"
+            },
+            {
+                title: "Open Projector",
+                type: "open projector",
+                id: "rsvp-open-projector",
+                desc: "A unique evening of artistic exchange that celebrates the diversity of interactive arts, from completed masterpieces to creative experiments. Cache invites the public to share work, ideas, and insights with fellow artists in an open and inviting atmosphere.",
+                date: "April 10, 2024",
+                time: "6-8pm",
+                url: "https://thisiscache.com/#rsvp-open-projector"
+            }
+        ]
     },
     th: {
-        desc1: "การรวมตัวของศิลปินในคราบนักเทคโนโลยีชาวไทยทั้ง 5 คน ที่มุ่งทลายกรอบเดิมระหว่างโลกของศิลปะกับโลกเทคโนโลยีให้ผสมกลมกลืนจนแทบแยกไม่ออก ศิลปะหรือเทคโนโลยีจำเป็นต้องถูกเสพย์สมจากแค่คนกลุ่มเดิมๆเท่านั้นจริงหรือ? ลองลืมภาพจำเทคโนโลยีที่ผูกขาดโดยเหล่าชาวเนิร์ด หนุ่มเทคสุดคูล หรือนักลงทุนสุดเนี้ยบไปก่อน เพราะเทคโนโลยีก็เป็นเสมือนผืนผ้าใบว่างเปล่าให้ถ่ายทอดอารมณ์เจ็บปวดรวดร้าว ซึ้งโศก เร้าอารมณ์ หรือแม้แต่แปลกประหลาดได้เหมือนกัน ในขณะเดียวกันศิลปะก็ไม่ต้องจำกัดวงคุยเฉพาะกลุ่มศิลปิน ฮิปสเตอร์ เจ้าของแกลเลอรี่ หรือนักสะสมอีกต่อไป คนพูดจาภาษาเทคก็ร่วมเป็นส่วนหนึ่งในบทสนทนาที่แสนทรงพลังนี้ได้เช่นกัน", 
-        desc2: "พลิก จะพาคุณไปทดลองสำรวจและเล่นสนุกไปกับเหล่าไอเดียสุดแหวกกรอบ กลวิธีแปลกประหลาด ความพิกลของเทคโนโลยี ในทุกบรรทัดของโค้ด เหล่าจุดพิกเซลที่เรียงตัว ล้วนพิสูจน์ให้เห็นว่าเทคโนโลยีก็เป็นดุจผืนผ้าใบไร้ขีดจำกัด ที่จะชวนท้าทาย วิจารณ์ชีวิตประจำวันที่คุ้นเคย ตั้งคำถามถึงความงาม สั่นคลอนแนวคิดของเวลา หรือเป็นไปได้ไหม ถ้าเทคโนโลยีจะไร้ “ประโยชน์หน้าที่” อย่างที่มันควรจะเป็น นอกจากนี้พลิก ยังแอบซ่อนกลิ่นอายของชีวิตประจำวันในกรุงเทพฯ อย่างแยบยลแต่ชัดเจน และถือเป็นอีเวนต์แรกจากกลุ่มศิลปิน CACHE กลุ่มศิลปินมัลติมีเดีย ที่มุ่งกระตุ้นความใคร่รู้ในเทคโนโลยี ผ่านเลนส์ศิลปะอิเล็กทรอนิกส์", 
+        p1: "นิทรรศการ พลิก by Cache Collective จะพาคุณไป “พลิก” มุมมองต่อสิ่งของและเหตุการณ์ธรรมดาในชีวิตประจำวัน ผ่านงาน interactive art สุด absurd ของ Creative technologist และศิลปินมัลติมีเดีย ทั้ง 5 ที่เลือกหยิบมุมมองทั้งมีและไม่มีสาระของชีวิตประจำวันมาเล่าใหม่ผ่านบรรทัดของโค้ด, อัลกอริทึ่ม หรือ การต่อวงจรไฟฟ้า ออกมาเป็น “งานศิลปะเล่นได้” ที่จะมากระตุกความคิด และชวนให้ผู้ชมได้ตั้งคำถามต่อสิ่งรอบตัว ตั้งแต่เรื่องนามธรรมอย่างความสมบูรณ์แบบ ไปจนถึงการออกแบบเมือง นำไปสู่การถกเถียงถึง ปรัชญาชีวิต ปัญหาสังคม หรือแม้แต่สาระที่ที่ศิลปะหรือเทคโนโลยีควรจะมี",
+        h1: "Join us!",
+        p2: "April 4–15, 1pm-9pm daily at 1559 Space , Bangkok, Thailand",
+        specialEvents: [
+            {
+                title: "Salon",
+                type: "salon",
+                id: "rsvp-salon",
+                desc: "พูดคุยกับศิลปินเจ้าของผลงานแบบใกล้ชิด ถึงแนวคิด แรงบันดาลใจ รวมไปถึงเบื้องหลังเทคโนโลยีที่ใช้สร้างชิ้นงาน แบบหมดเปลือก โดย moderator คุณณฐพล บุญประกอบ - ผู้กำกับสารคดี",
+                date: "April 7, 2024",
+                time: "11am-1pm",
+                url: "https://thisiscache.com/#rsvp-salon"
+            },
+            {
+                title: "Open Projector",
+                type: "open projector",
+                id: "rsvp-open-projector",
+                desc: "เวทีพูดคุยแลกเปลี่ยนผลงานและไอเดีย ที่เปิดกว้างให้ใครก็ตาม ทั้งศิลปินหน้าใหม่ หรือสายไอทีสุดเก๋า มาโชว์ผลงาน interactive art ของตัวเอง ทั้งงานทดลอง หรืองาน masterpiece ก็ได้ ในรูปแบบของ short presentation คนละ 10 นาที",
+                date: "April 10, 2024",
+                time: "6-8pm",
+                url: "https://thisiscache.com/#rsvp-open-projector"
+            }
+        ],
     }
-    
 }
