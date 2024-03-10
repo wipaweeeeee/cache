@@ -129,7 +129,7 @@ const Scene = ({ posY }) => {
         <div className={styles.canvas}>
             <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
                 <Suspense fallback={null}>
-                    <ScrollControls pages={3.5} damping={0.1}>
+                    <ScrollControls pages={mobile ? 4.4 : 3.5} damping={0.1}>
                         <Scroll>
                             <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
                             <Shift windowWidth={windowWidth} />
