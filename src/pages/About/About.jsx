@@ -2,8 +2,9 @@ import { useState } from 'react';
 import styles from './styles.module.scss';
 import Airtable from 'airtable';
 import Marquee from "react-fast-marquee";
-import useLangState from '@/atoms/language_atom';
-import { data } from './content';
+import useLangState from "@/atoms/language_atom";
+import { data } from "./content";
+import classNames from 'classnames';
 
 const About = () => {
 
@@ -59,15 +60,15 @@ const About = () => {
             </div>
             <div className={styles.content}>
                 <div className={styles.column}>
-                    <p style={{ marginBottom: '20px' }}>{content.block1}</p>
-                    <p>{content.block2}</p>
+                    <p style={{ marginBottom: '20px' }} className={classNames({[styles.thai] : lang == 'th'})}>{content.block1}</p>
+                    <p className={classNames({[styles.thai] : lang == 'th'})}>{content.block2}</p>
                 </div>
                 <div className={styles.twoUp}>
                     <div className={styles.column}>
-                        <p>{content.block3}</p>
+                        <p className={classNames({[styles.thai] : lang == 'th'})}>{content.block3}</p>
                     </div>
                     <div className={styles.column}>
-                        <p>{content.block4}</p>
+                        <p className={classNames({[styles.thai] : lang == 'th'})}>{content.block4}</p>
                         <div className={styles.form}>
                             <input type="email" pattern=".+@example\.com" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} value={email}/> 
                             <div className={styles.arrow} onClick={handleSignup}/>

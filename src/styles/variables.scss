@@ -26,7 +26,6 @@ $desktop-width: 1024px;
 }
 
 //font-face
-//TODO: replace with real version
 @font-face {
   font-family: 'Self Modern';
   src: url('/fonts/self-modern_regular.woff') format('woff');
@@ -46,6 +45,28 @@ $desktop-width: 1024px;
     src: url('/fonts/self-modern_italic.woff') format('woff');
     font-weight: 400;
     font-style: italic;
+}
+
+//THAI
+@font-face {
+  font-family: 'NotoSansThai_Condensed';
+  src: url('/fonts/NotoSansThai_Condensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansThai';
+  src: url('/fonts/NotoSansThai-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansThai';
+  src: url('/fonts/NotoSansThai-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
 
 

@@ -1,7 +1,7 @@
 .canvas {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
     top: 0;
     left: 0;
     z-index: -1;
@@ -16,9 +16,175 @@
         border: 1px solid black;
         border-radius: 99px;
         font-style: italic;
-        font-size: 15px;
+        font-size: 14px;
+        position: fixed;
     }
 }
+
+.htmlContainer {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thai {
+    font-family: 'NotoSansThai';
+    font-style: normal !important;
+    font-size: 18px !important;
+    line-height: 28px !important;
+}
+
+.detailsContainer {
+    width: 62vw;
+    padding: 50px;
+    border-radius: 24px;
+    background-color: white;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+
+    &.first {
+        margin-top: 85vh;
+    }
+
+    h1, h3, h4 {
+        font-style: italic;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3.75rem;
+        letter-spacing: -2px;
+        margin-bottom: 36px;
+        line-height: 3rem;
+    }
+
+    h3 {
+        font-size: 6.25rem;
+        text-align: left;
+        letter-spacing: -4px;
+        margin: 70px 0 20px;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        letter-spacing: -1px;
+        margin-top: 48px;
+        margin-bottom: 8px;
+    }
+
+    .desc {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1.125rem;
+        line-height: 1.6rem;
+        font-style: italic;
+        text-align: center;
+
+        &.left {
+            width: 80%;
+            text-align: left;
+            margin: 0;
+            margin-bottom: 48px;
+        }
+    }
+
+    .header {
+        margin-right: auto;
+        display: flex;
+
+        .tag {
+            background-color: #00FF00;
+            padding: 12px 40px;
+            font-size: 1.125rem;
+            border-radius: 99px;
+        }
+
+        .link {
+            background-color: #00FF00;
+            width: 46px;
+            height: 46px;
+            border-radius: 99px;
+            margin-left: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            padding-right: 2px;
+            cursor: pointer;
+        }
+
+        .copied {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+    }
+
+    .dates {
+        display: flex;
+        width: 40%;
+        justify-content: space-between;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+
+    .note {
+        margin-top: 70px;
+        font-size: 0.8rem;
+    }
+
+    .emailContainer {
+        margin-top: 20px;
+
+        input {
+            background-color: white;
+            width: 320px;
+            height: 46px;
+            border: 1px solid black;
+            border-radius: 99px;
+            font-family: "Self Modern";
+            font-style: italic;
+            font-size: 18px;
+            padding: 10px 20px;
+    
+            &::placeholder {
+                color: black;
+                font-size: 18px;
+            }
+        }
+    
+        .button {
+            height: 46px;
+            padding: 0px 34px;
+            font-size: 18px;
+            font-family: "Self Modern";
+            font-style: italic;
+            outline: none;
+            border: 1px solid black;
+            border-radius: 99px;
+            background-color: white;
+            margin-left: 12px;
+            color: black;
+        }
+    
+        .status {
+           margin-top: 12px;
+        }
+    }
+    
+}
+
 
 @include tablet {
     .canvas {
@@ -27,6 +193,13 @@
             padding: 6px 16px;
         }
     }
+
+    .detailsContainer {
+        .dates {
+            width: 60%;
+        }
+    }
+
 }
 
 @include mobile {
@@ -34,6 +207,68 @@
         .pill {
             font-size: 12px;
             padding: 6px 16px;
+        }
+    }
+
+    .detailsContainer { 
+        width: calc(100vw - 40px);
+        padding: 24px;
+        
+        .desc { 
+            width: 100%;
+
+            &.left {
+                width: 100%;
+            }
+        }
+
+        .dates {
+            width: 100%;
+        }
+
+        h3 {
+            font-size: 5rem;
+            line-height: 5.5rem;
+            letter-spacing: -3px;
+        }
+
+        .emailContainer {
+            display: flex;
+            justify-content: space-between;
+            input {
+                background-color: white;
+                width: calc(100% - 48px);
+                height: 40px;
+            }
+        
+            .arrow {
+                background: url('/arrow.svg');
+                width: 40px;
+                height: 40px;
+                border-radius: 99px;
+            }
+        
+            .status {
+               margin-top: 12px;
+            }
+        }
+    }
+    
+    .socialContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: calc(100vw - 40px);
+    
+        .social {
+            padding: 6px 20px;
+            background: white;
+            border: 1px solid black;
+            border-radius: 99px;
+            font-style: italic;
+            font-size: 15px;
+            margin-bottom: 16px;
+            text-align: center;
         }
     }
 }

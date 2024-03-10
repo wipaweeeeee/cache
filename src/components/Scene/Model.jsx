@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from "react";
-import { useGLTF, MeshTransmissionMaterial, PresentationControls } from "@react-three/drei";
+import { useGLTF, MeshTransmissionMaterial, PresentationControls, useScroll } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber'
 
-export default function Model({ windowWidth }) {
+export default function Model({ windowWidth, posY }) {
 
   const { nodes } = useGLTF("/models/chilli_curve_smooth.glb");
   const mesh = useRef();
@@ -48,11 +48,11 @@ export default function Model({ windowWidth }) {
       >
         <mesh
           geometry={nodes.chilli_curve_smooth.geometry}
-          position={[0, vertical ? 0.4 : 0.8, 0]}
+          position={[0, vertical ? 0 : 0.5, 0]}
           rotation={[deg(90), vertical ? deg(30) : deg(0), vertical ? deg(20) : deg(0)]}
           scale={scale}
         >
-          <MeshTransmissionMaterial thickness={15} ior={3} clearcoat={1} />
+          <MeshTransmissionMaterial thickness={15} ior={3} clearcoat={1} envMapIntensity={1}/>
       </mesh>
     </PresentationControls>
     </group>

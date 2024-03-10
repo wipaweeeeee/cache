@@ -98,7 +98,17 @@
         font-style: italic;
         font-size: 15px;
         margin-bottom: 16px;
+        text-align: center;
     }
+}
+
+.bgCanvas {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
 }
 
 @include tablet {
