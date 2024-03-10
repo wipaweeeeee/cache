@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
-import { useGLTF, MeshTransmissionMaterial, PresentationControls, useScroll } from "@react-three/drei";
-import { useFrame } from '@react-three/fiber'
+import { useGLTF, MeshTransmissionMaterial, PresentationControls } from "@react-three/drei";
+import { useFrame } from '@react-three/fiber';
+import { useScrollData } from '@/hooks/useScrollData';
 
 export default function Model({ windowWidth, posY }) {
 
@@ -10,9 +11,24 @@ export default function Model({ windowWidth, posY }) {
   const [scale, setScale] = useState(2.8);
   const [vertical, setVertical] = useState(false);
 
+  const { scrolling, direction } = useScrollData();
+  const scrollY = direction.y;
+
   useFrame((state, delta) => {
-    mesh.current.rotation.y += delta * 0.02;
-    mesh.current.rotation.x -= delta * 0.02;
+    
+    if (scrolling) {
+      if (scrollY == 'down') {
+        mesh.current.rotation.y += delta * 1.5;
+        // mesh.current.rotation.x -= delta * 0.5;
+      } else {
+        mesh.current.rotation.y -= delta * 1.5;
+        // mesh.current.rotation.x += delta * 0.5;
+      }
+      
+    } else {
+      mesh.current.rotation.y += delta * 0.02;
+      // mesh.current.rotation.x -= delta * 0.02;
+    }
   })
 
   const deg = (angle) => {

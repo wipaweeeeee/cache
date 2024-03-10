@@ -32,7 +32,8 @@ const About = () => {
             table.create([
                 {
                     "fields": {
-                        "email": email
+                        "email": email,
+                        "detail": 'submit from about page'
                     }
                 }
             ], function(err, records) {
