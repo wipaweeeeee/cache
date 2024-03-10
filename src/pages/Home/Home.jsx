@@ -96,8 +96,6 @@ const Home = () => {
         }
     }
 
-    console.log(form)
-
     const specialEvents = content.specialEvents.map((item, index) => {
         return (
             <div className={styles.detailsContainer} id={item.id} key={index}>
