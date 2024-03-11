@@ -1,11 +1,11 @@
 
 .htmlContainer {
-    width: 100%;
+    width: calc(100% - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 80vh;
+    top: 85vh;
     padding-bottom: 300px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .detailsContainer {
-    width: 62vw;
+    width: 68vw;
     padding: 50px;
     border-radius: 24px;
     background-color: white;
@@ -279,33 +279,14 @@
 }
 
 @include tablet {
-    .emailContainer {
-
-        right: 20px;
-
-        input {
-            width: 240px;
-            height: 40px;
-            font-size: 14px;
-        }
-
-        .button {
-            height: 40px;
-            padding: 0px 24px;
-            font-size: 14px;
-        }
+    .htmlContainer {
+        width: calc(100% - 80px);
+        top: 88vh;
     }
 
-    .descCTA {
-        left: calc(50% + 160px);
-        top: 300px;
-        width: 40px;
-        height: 40px;
-        background-size: contain;
-    }
-
-    .desc {
-        transform: translate(-50%, -35%);
+    .detailsContainer {  
+        width: 100%;
+        z-index: 999;
     }
 }
 
