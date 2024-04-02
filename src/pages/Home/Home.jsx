@@ -117,60 +117,70 @@ const Home = () => {
                         <div>{item.time}</div>
                     </div>
                 </div>
-                <div className={styles.note}>Limited availability. RSVP by <u>April 1</u> to reserve your spot. </div>
-                <div className={styles.emailContainer}>
-                    <div className={styles.formRow}>
-                        <label className={styles.label}>
-                            <div className={styles.title}>Name</div>
-                            <input type="text" onChange={(e) => setForm((states) => ({...states, name: e.target.value}))} value={form.name}/>
-                        </label>
-                        <label className={styles.label}>
-                            <div className={styles.title}>Phone Number</div>
-                            <input type="text" onChange={(e) => setForm((states) => ({...states, phone: e.target.value}))} value={form.phone}/>
-                        </label>
-                    </div>
-                    <div className={styles.formRow}>
-                        <label className={styles.label}>
-                            <div className={styles.title}>Social Media</div>
-                            <input type="text" onChange={(e) => setForm((states) => ({...states, social: e.target.value}))} value={form.social}/>
-                        </label>
-                        <label className={styles.label}>
-                            <div className={styles.title}>Website (optional)</div>
-                            <input type="text" onChange={(e) => setForm((states) => ({...states, website: e.target.value}))} value={form.website}/>
-                        </label>
-                    </div>
-                    {
-                        item.type == 'open projector' && 
+                {
+                    item.type == 'open projector' && 
+                    <div className={classNames(styles.note, styles.large)}>RSVP is full. Thank you for your interest! </div>
+                }
+                {
+                    item.type !== 'open projector' && 
+                    <div className={styles.note}>Limited availability. RSVP by <u>April 1</u> to reserve your spot. </div>
+                }
+                {
+                    item.type !== 'open projector' && 
+                    <div className={styles.emailContainer}>
                         <div className={styles.formRow}>
-                            <label className={classNames(styles.label, styles.radio)}>
-                                <div className={classNames(styles.title, {[styles.thai] : lang == 'th'})}>{lang == "th" ? "สนใจเข้าฟัง" : "Just attending :)"}</div>
-                                <div className={classNames(styles.checkbox, {[styles.checked] : form.attending})} onClick={() => setForm((states) => ({...states, attending: !form.attending}))}/>
+                            <label className={styles.label}>
+                                <div className={styles.title}>Name</div>
+                                <input type="text" onChange={(e) => setForm((states) => ({...states, name: e.target.value}))} value={form.name}/>
                             </label>
-                            <label className={classNames(styles.label, styles.radio)}>
-                            <div className={classNames(styles.title, {[styles.thai] : lang == 'th'})}>{lang == "th" ? "สนใจร่วมพรีเซ้นท์" : "I'd like to share work!"}</div>
-                                <div className={classNames(styles.checkbox, {[styles.checked] : form.presenting})} onClick={() => setForm((states) => ({...states, presenting: !form.presenting}))}/>
+                            <label className={styles.label}>
+                                <div className={styles.title}>Phone Number</div>
+                                <input type="text" onChange={(e) => setForm((states) => ({...states, phone: e.target.value}))} value={form.phone}/>
                             </label>
                         </div>
-                    }
-                    {
-                        item.type == 'open projector' && form.presenting && 
-                        <div className={styles.formColumn}>
-                                 <div className={classNames(styles.title, {[styles.thai] : lang == 'th'})}>
-                                    {lang == "th" ? "โปรดอธิบายงานสั้นๆ" : "Please describe briefly what you are planning to share"}
-                                </div>
-                                <textarea onChange={(e) => setForm((states) => ({...states, detail: e.target.value}))} value={form.detail}/>
+                        <div className={styles.formRow}>
+                            <label className={styles.label}>
+                                <div className={styles.title}>Social Media</div>
+                                <input type="text" onChange={(e) => setForm((states) => ({...states, social: e.target.value}))} value={form.social}/>
+                            </label>
+                            <label className={styles.label}>
+                                <div className={styles.title}>Website (optional)</div>
+                                <input type="text" onChange={(e) => setForm((states) => ({...states, website: e.target.value}))} value={form.website}/>
+                            </label>
                         </div>
-                    }
-                    <div className={styles.formRow}>
-                        <label className={classNames(styles.label, styles.long)}>
-                            <div className={styles.title}>E-mail</div>
-                            <input type="email" pattern=".+@example\.com" onChange={(e) => setForm((states) => ({...states, email: e.target.value}))} value={form.email}/>
-                        </label>
-                        { !mobile && <button className={styles.button} onClick={() => handleSignup(item.type)}>RSVP</button>}
-                        { mobile && <div className={styles.arrow} onClick={() => handleSignup(item.type)}/>}
+                        {
+                            item.type == 'open projector' && 
+                            <div className={styles.formRow}>
+                                <label className={classNames(styles.label, styles.radio)}>
+                                    <div className={classNames(styles.title, {[styles.thai] : lang == 'th'})}>{lang == "th" ? "สนใจเข้าฟัง" : "Just attending :)"}</div>
+                                    <div className={classNames(styles.checkbox, {[styles.checked] : form.attending})} onClick={() => setForm((states) => ({...states, attending: !form.attending}))}/>
+                                </label>
+                                <label className={classNames(styles.label, styles.radio)}>
+                                <div className={classNames(styles.title, {[styles.thai] : lang == 'th'})}>{lang == "th" ? "สนใจร่วมพรีเซ้นท์" : "I'd like to share work!"}</div>
+                                    <div className={classNames(styles.checkbox, {[styles.checked] : form.presenting})} onClick={() => setForm((states) => ({...states, presenting: !form.presenting}))}/>
+                                </label>
+                            </div>
+                        }
+                        {
+                            item.type == 'open projector' && form.presenting && 
+                            <div className={styles.formColumn}>
+                                    <div className={classNames(styles.title, {[styles.thai] : lang == 'th'})}>
+                                        {lang == "th" ? "โปรดอธิบายงานสั้นๆ" : "Please describe briefly what you are planning to share"}
+                                    </div>
+                                    <textarea onChange={(e) => setForm((states) => ({...states, detail: e.target.value}))} value={form.detail}/>
+                            </div>
+                        }
+                        <div className={styles.formRow}>
+                            <label className={classNames(styles.label, styles.long)}>
+                                <div className={styles.title}>E-mail</div>
+                                <input type="email" pattern=".+@example\.com" onChange={(e) => setForm((states) => ({...states, email: e.target.value}))} value={form.email}/>
+                            </label>
+                            { !mobile && <button className={styles.button} onClick={() => handleSignup(item.type)}>RSVP</button>}
+                            { mobile && <div className={styles.arrow} onClick={() => handleSignup(item.type)}/>}
+                        </div>
+                        { submitted == item.type && <div className={styles.status}>{ error ? 'Uh oh, not a valid email' : 'Thank you! See you soon :)'}</div>}
                     </div>
-                    { submitted == item.type && <div className={styles.status}>{ error ? 'Uh oh, not a valid email' : 'Thank you! See you soon :)'}</div>}
-                </div>
+                }
             </div>
         )
     })
