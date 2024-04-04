@@ -117,15 +117,8 @@ const Home = () => {
                         <div>{item.time}</div>
                     </div>
                 </div>
-                {
-                    item.type == 'open projector' && 
-                    <div className={classNames(styles.note, styles.large)}>RSVP is full. Thank you for your interest! </div>
-                }
-                {
-                    item.type !== 'open projector' && 
-                    <div className={styles.note}>Limited availability. RSVP by <u>April 1</u> to reserve your spot. </div>
-                }
-                {
+                <div className={classNames(styles.note, styles.large)}>RSVP is full. Thank you for your interest! </div>
+                {/* {
                     item.type !== 'open projector' && 
                     <div className={styles.emailContainer}>
                         <div className={styles.formRow}>
@@ -180,7 +173,7 @@ const Home = () => {
                         </div>
                         { submitted == item.type && <div className={styles.status}>{ error ? 'Uh oh, not a valid email' : 'Thank you! See you soon :)'}</div>}
                     </div>
-                }
+                } */}
             </div>
         )
     })
