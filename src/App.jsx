@@ -4,6 +4,7 @@ import Home from '@/pages/Home';
 import Archive from '@/pages/Archive';
 import About from '@/pages/About';
 import Wildcard from '@/pages/Wildcard';
+import Residency from './pages/Residency';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
       <Route path="archive" element={<Archive />} />
       <Route path="info" element={<About />} />
       <Route path="wildcard" element={<Wildcard />} />
+      <Route path="future" element={<Residency />} />
     </Route>
   )
 )
