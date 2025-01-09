@@ -64,9 +64,9 @@ const fragmentShader = `
         tuv.y += sin(tuv.x*frequency*.5+speed)/(amplitude*.5);
         
         // draw the image
-        vec3 colorWhite = vec3(1, 1, 1);
-        vec3 colorGreen = vec3(0, 1, 0);
-        vec3 colorBlue = vec3(0.082, 0.843, 1);
+        vec3 colorWhite = vec3(0.93, 0.92, 0.62);
+        vec3 colorGreen = vec3(0.99, 0.98, 0.78);
+        vec3 colorBlue = vec3(0.3, 0.23, 0); //vec3(0.082, 0.843, 1);
 
         vec3 layer2 = mix(colorGreen, colorBlue, S(-.4, .2, (tuv*Rot(radians(-.5))).y));
         vec3 finalComp = mix(colorWhite, layer2, S(0.8, -0.3, tuv.x));

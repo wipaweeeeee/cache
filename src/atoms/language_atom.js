@@ -2,7 +2,7 @@ import { atom, useRecoilState } from "recoil"
 
 const langState = atom({
     key: 'languageState',
-    default: { lang: 'th'}
+    default: { lang: 'en'}
 })
 
 function useLangState() {

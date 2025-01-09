@@ -6,8 +6,10 @@ import { motion } from 'framer-motion';
 import useLangState from '@/atoms/language_atom';
 
 const options = [
-    { title: 'Home', path: '/'},
-    { title: 'Info', path: '/info'},
+    // { title: 'Home', path: '/'},
+    // { title: 'Info', path: '/info'},
+    { title: 'Residency', path: '/future'},
+    { title: 'Archive Event', path: '/shift'},
     // { title: '???', path: '/wildcard'},
     // { title: 'Archive', path: '/archive'}, //update height below when add this
 ];

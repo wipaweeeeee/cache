@@ -1,5 +1,7 @@
 .aboutContainer {
     padding-bottom: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
 
     .bigCache {
         padding-top: 22vh;
@@ -88,7 +90,12 @@
 
             p, a {
                 font-size: 14px;
-                line-height: 20px;
+                line-height: 24px;
+                
+            }
+
+            a {
+                text-decoration: underline;
             }
 
             &:first-of-type {
@@ -149,6 +156,10 @@
 
 @include mobile {
     .aboutContainer {
+
+        padding-left: 20px;
+        padding-right: 20px;
+
         .bigCache {
             padding-top: 32vh;
         }

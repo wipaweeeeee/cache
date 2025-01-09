@@ -47,6 +47,13 @@ $desktop-width: 1024px;
     font-style: italic;
 }
 
+@font-face {
+  font-family: 'SuisseIntl-Regular';
+  src: url('/fonts/SuisseIntl-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
 //THAI
 @font-face {
   font-family: 'NotoSansThai_Condensed';
