@@ -5,16 +5,18 @@ import Archive from '@/pages/Archive';
 import About from '@/pages/About';
 import Wildcard from '@/pages/Wildcard';
 import Residency from './pages/Residency';
+import NewHome from '@/pages/NewHome';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Header />}>
+    <Route path="/" >
       <Route index element={<About />} /> 
       <Route path="archive" element={<Archive />} />
       <Route path="info" element={<About />} />
       <Route path="wildcard" element={<Wildcard />} />
       <Route path="future" element={<Residency />} />
       <Route path="shift" element={<Home />} />
+      <Route path="newhome" element={<NewHome />} />
     </Route>
   )
 )
