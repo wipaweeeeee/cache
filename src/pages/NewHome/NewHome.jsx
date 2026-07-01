@@ -1,5 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
+import classNames from 'classnames';
+
+const generateSlug = (name) => {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+};
 
 const PARAGRAPHS = [
   `We are a collective of varying interest and background, but shared intent to develop a new kind of artistic community; one that is focused on pushing artistic forms and expressions of technology. Founded in 2023 by Thai artists and technologists who converged in New York City, we started out as a platform for emerging new media artists working in Bangkok. We've since grown into something harder to categorize and more interesting for it.`,
@@ -8,23 +18,28 @@ const PARAGRAPHS = [
 ];
 
 const EVENTS = [
-  {
-    year: '2025',
-    items: [
       {
         name: 'Bangkok Art Book Fair',
         desc: 'Presented our curation of tech zines and prints at BACC',
+        year: '2025',
         images: [
+          '/bkkabf/IMG_1648.JPG',
           '/bkkabf/1.png',
           '/bkkabf/2.png',
-          '/bkkabf/3.png',
+          '/bkkabf/IMG_1804.JPG',
           '/bkkabf/4.png',
-          '/bkkabf/5.png',
+          '/bkkabf/IMG_1661.JPG',
+          '/bkkabf/IMG_1694.JPG',
+          '/bkkabf/IMG_1725.JPG',
+          '/bkkabf/IMG_1856.JPG',
+          '/bkkabf/IMG_1915.JPG',
+          '/bkkabf/IMG_2046.JPG',
         ],
       },
       {
         name: 'Close Inspection From Afar',
         desc: 'Pop-up group exhibition at ETA Bangkok',
+        year: '2025',
         images: [
           '/closeInspectionFromAfar/1.png',
           '/closeInspectionFromAfar/2.png',
@@ -32,74 +47,76 @@ const EVENTS = [
           '/closeInspectionFromAfar/4.png',
           '/closeInspectionFromAfar/5.png',
           '/closeInspectionFromAfar/6.png',
+          '/closeInspectionFromAfar/7.png',
+          '/closeInspectionFromAfar/8.png',
+          '/closeInspectionFromAfar/9.png',
+          '/closeInspectionFromAfar/10.png',
         ],
       },
       {
         name: 'Data Farmers Market',
-        desc: 'Buy and sell raw data at Goethe Institute',
+        desc: 'Buy and sell raw data at the Goethe Institut',
+        year: '2025',
         images: [
           '/dataFarmersMarket/1.png',
           '/dataFarmersMarket/2.png',
           '/dataFarmersMarket/3.png',
         ],
       },
-    ],
-  },
-  {
-    year: '2024',
-    items: [
+      {
+        name: 'A Bit of Thai Tunes',
+        desc: 'Mini Outdoor Digital Arts and Live Coding Music Festival with a Twist of Thainess at Museum Siam',
+        year: '2024',
+        images: [
+          '/aBitOfThaiTunes/1.png',
+          '/aBitOfThaiTunes/2.png',
+          '/aBitOfThaiTunes/3.png',
+          '/aBitOfThaiTunes/4.png',
+          '/aBitOfThaiTunes/5.png',
+          '/aBitOfThaiTunes/6.png',
+          '/aBitOfThaiTunes/7.png',
+          '/aBitOfThaiTunes/8.png',
+          '/aBitOfThaiTunes/9.png',
+          '/aBitOfThaiTunes/10.png',
+        ],
+      },
       {
         name: 'Shift by Cache',
         desc: '11-day independent show at 1559 Space featuring Artist Talk and Open Mic Night',
+        year: '2024',
         images: [
-          '/shiftByCache/02-IG.png',
+          '/shiftByCache/2024-04-07_1559_Shift_Cache Collective-88.jpg',
+          '/shiftByCache/772A1189.jpg',
+          '/shiftByCache/772A1157.jpg',
+          '/shiftByCache/772A1165.jpg',
+          '/shiftByCache/772A3357.jpg',
+          '/shiftByCache/772A3112.jpg',
+          '/shiftByCache/772A3436.jpg',
+          '/shiftByCache/772A3574.jpg',
           '/shiftByCache/02.png',
           '/shiftByCache/03.png',
+          '/shiftByCache/2024-04-07_1559_Shift_Cache Collective-35.jpg',
+          '/shiftByCache/2024-04-07_1559_Shift_Cache Collective-41.jpg',
+          '/shiftByCache/2024-04-07_1559_Shift_Cache Collective-48.jpg',
+          '/shiftByCache/2024-04-07_1559_Shift_Cache Collective-54.jpg',
+          '/shiftByCache/2024-04-07_1559_Shift_Cache Collective-79.jpg',
+          '/shiftByCache/772A3672.jpg',
+          '/shiftByCache/772A3817.jpg',
+          '/shiftByCache/772A3890.jpg',
+          '/shiftByCache/772A4302.jpg',
+          '/shiftByCache/772A4369.jpg',
+          '/shiftByCache/IMG_3341.jpg',
           '/shiftByCache/cache_1.png',
           '/shiftByCache/cache_7.png',
           '/shiftByCache/image 1.png',
           '/shiftByCache/image 2.png',
+          '/shiftByCache/night.jpg',
         ],
       },
-    ],
-  },
 ];
 
-const GAP = 24;
-
-function generateLayout(images) {
-  const count = Math.min(Math.floor(Math.random() * 3) + 3, images.length);
-  const picked = [...images].sort(() => Math.random() - 0.5).slice(0, count);
-
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  const placed = [];
-
-  return picked.map((src) => {
-    const width = vw < 768
-      ? Math.floor(Math.random() * 60) + 80
-      : Math.floor(Math.random() * 180) + 150;
-    const estHeight = width * 0.75;
-    let top = Math.random() * 55 + 10;
-    let left = Math.random() * 60 + 5;
-
-    for (let attempt = 0; attempt < 60; attempt++) {
-      const x = (left / 100) * vw;
-      const y = (top / 100) * vh;
-      const fits = placed.every((p) => {
-        const clearH = x + width + GAP <= p.x || p.x + p.w + GAP <= x;
-        const clearV = y + estHeight + GAP <= p.y || p.y + p.h + GAP <= y;
-        return clearH || clearV;
-      });
-      if (fits) break;
-      top = Math.random() * 55 + 10;
-      left = Math.random() * 60 + 5;
-    }
-
-    placed.push({ x: (left / 100) * vw, y: (top / 100) * vh, w: width, h: estHeight });
-    return { src, top, left, width };
-  });
-}
+const EVENT_SLUGS = EVENTS.map(event => generateSlug(event.name));
+const SLUG_TO_INDEX = new Map(EVENT_SLUGS.map((slug, index) => [slug, index]));
 
 const SCROLL_SPEED = 0.4;
 
@@ -108,7 +125,11 @@ const NewHome = () => {
   const rotationRef = useRef(0);
   const prevScrollRef = useRef(0);
   const lockedRef = useRef(false);
-  const [activeLayout, setActiveLayout] = useState([]);
+  const carouselRefs = useRef([]);
+
+  const [hideCarousel, setHideCarousel] = useState(null);
+  const [focusProject, setFocusProject] = useState(null);
+  const [carouselProgress, setCarouselProgress] = useState(0);
 
   useEffect(() => {
     prevScrollRef.current = window.scrollY;
@@ -126,59 +147,120 @@ const NewHome = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+
   useEffect(() => {
-    const dismiss = () => {
-      lockedRef.current = false;
-      setActiveLayout([]);
-    };
-    document.addEventListener('click', dismiss);
-    return () => document.removeEventListener('click', dismiss);
+    if (window.location.hash) {
+      const hash = window.location.hash.replace('#', '');
+      const eventIndex = SLUG_TO_INDEX.get(hash);
+
+      if (eventIndex !== undefined) {
+        const timeoutId = setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            const offset = 270;
+            const elementTop = element.getBoundingClientRect().top + window.scrollY;
+            const scrollPosition = elementTop - offset;
+
+            window.scrollTo({
+              top: Math.max(0, scrollPosition),
+              behavior: 'smooth'
+            });
+
+            // Focus the event (expand carousel)
+            setFocusProject(eventIndex);
+            if (carouselRefs.current[eventIndex]) {
+              carouselRefs.current[eventIndex].scrollLeft = 0;
+            }
+            setCarouselProgress(0);
+          }
+        }, 100);
+
+        return () => clearTimeout(timeoutId);
+      }
+    }
   }, []);
 
-  const handleEnter = (images) => {
-    if (!images?.length) return;
-    setActiveLayout(generateLayout(images));
-  };
+  useEffect(() => {
+    const handlePopState = () => {
+      if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const eventIndex = SLUG_TO_INDEX.get(hash);
+        const element = document.getElementById(hash);
 
-  const handleLeave = () => {
-    if (!lockedRef.current) setActiveLayout([]);
-  };
+        if (element) {
+          const offset = 270;
+          const elementTop = element.getBoundingClientRect().top + window.scrollY;
+          const scrollPosition = elementTop - offset;
 
-  const handleTitleClick = (e, images) => {
-    e.stopPropagation();
-    if (!images?.length) return;
-    if (lockedRef.current) {
-      lockedRef.current = false;
-      setActiveLayout([]);
+          window.scrollTo({
+            top: Math.max(0, scrollPosition),
+            behavior: 'smooth'
+          });
+
+          // Focus the event (expand carousel)
+          if (eventIndex !== undefined) {
+            setFocusProject(eventIndex);
+            if (carouselRefs.current[eventIndex]) {
+              carouselRefs.current[eventIndex].scrollLeft = 0;
+            }
+            setCarouselProgress(0);
+          }
+        }
+      } else {
+        // No hash - unfocus and scroll to top
+        setFocusProject(null);
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const handleFocusClick = (focusIndex) => {
+    const slug = EVENT_SLUGS[focusIndex];
+    window.history.pushState(null, '', `#${slug}`);
+
+    if (focusProject == focusIndex) {
+      setFocusProject(null);
     } else {
-      lockedRef.current = true;
-      setActiveLayout(generateLayout(images));
+      setFocusProject(focusIndex);
+      if (carouselRefs.current[focusIndex]) {
+        carouselRefs.current[focusIndex].scrollLeft = 0;
+      }
+      setCarouselProgress(0);
+    }
+  }
+
+  const handleMouseOver = (focusIndex) => {
+    if (focusProject == null) {
+      setHideCarousel(focusIndex)
+    } else if (focusProject !== null) {
+      if (focusProject !== focusIndex) {
+        setHideCarousel(focusIndex);
+      }
+    }
+  }
+
+  const handleMouseOut = (focusIndex) => {
+    if (focusProject !== focusIndex) {
+      setHideCarousel(null);
+    } 
+  }
+
+  const handleCarouselScroll = (e, itemIndex) => {
+    if (focusProject === itemIndex) {
+      const { scrollLeft, scrollWidth, clientWidth} = e.currentTarget;
+      setCarouselProgress(scrollLeft / (scrollWidth - clientWidth));
     }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.gradientOverlay} />
-
-      {activeLayout.length > 0 && (
-        <div className={styles.floatingImages}>
-          {activeLayout.map(({ src, top, left, width, rotation }, i) => (
-            <img
-              key={i}
-              className={styles.floatingImg}
-              src={src}
-              alt=""
-              style={{
-                top: `${top}vh`,
-                left: `${left}vw`,
-                width: `${width}px`,
-                transform: `rotate(${rotation}deg)`,
-              }}
-            />
-          ))}
-        </div>
-      )}
-
       <section className={styles.hero}>
         <div ref={logoRef} className={styles.spinLogo}>
           <svg width="79" height="55" viewBox="0 -5 85 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -202,26 +284,51 @@ const NewHome = () => {
 
       <section className={styles.indexSection}>
         <p className={styles.indexLabel}>Index</p>
-        {EVENTS.map(({ year, items }) => (
-          <div key={year} className={styles.indexGroup}>
+          <div className={styles.indexGroup}>
             <div className={styles.events}>
-              {items.map(({ name, desc, images }) => (
-                <div key={name} className={styles.event}>
+              {EVENTS.map(({ name, desc, images, year }, itemIndex) => (
+                <div
+                  key={name}
+                  id={EVENT_SLUGS[itemIndex]}
+                  className={styles.event}
+                >
                   <span className={styles.year}>{year}</span>
                   <p
                     className={styles.eventName}
-                    onMouseEnter={() => handleEnter(images)}
-                    onMouseLeave={handleLeave}
-                    onClick={(e) => handleTitleClick(e, images)}
+                    onMouseEnter={() => handleMouseOver(itemIndex)}
+                    onMouseLeave={() => handleMouseOut(itemIndex)}
+                    onClick={() => handleFocusClick(itemIndex)}
                   >
                     {name}
                   </p>
                   <p className={styles.eventDesc}>{desc}</p>
+                  <div
+                    ref={(el) => (carouselRefs.current[itemIndex] = el)}
+                    onScroll={(e) => handleCarouselScroll(e, itemIndex)}
+                    className={classNames(
+                      styles.carousel,
+                      {[styles.hide] : hideCarousel !== itemIndex && focusProject !== itemIndex },
+                      {[styles.focus] : focusProject == itemIndex }
+                    )}
+                  >
+                    { images.map((imgSrc, index) => {
+                      return (
+                        <div key={index} className={styles.carouselItem}>
+                          <img src={imgSrc} />
+                        </div>
+                      )
+                    })}
+                  </div>
+                  {
+                    focusProject == itemIndex && 
+                    <div className={styles.progressBarContainer}>
+                      <div className={styles.progressBar} style={{ width: `${carouselProgress * 100}%` }}/>
+                    </div>
+                  }
                 </div>
               ))}
             </div>
           </div>
-        ))}
       </section>
 
       <section className={styles.contactSection}>

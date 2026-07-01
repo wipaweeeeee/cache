@@ -92,7 +92,7 @@
 
     .indexGroup {
       display: flex;
-      margin-left: 38%;
+      margin-left: 38vw;
       margin-bottom: 60px;
 
       &:last-child {
@@ -133,6 +133,66 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 30px;
+      }
+
+      .carousel {
+        display: flex;
+        gap: 2px;
+        height: 80px;
+        margin-top: 12px;
+        opacity: 1;
+        transition: opacity 0.25s, height 0.25s;
+        overflow-x: auto;
+        overflow-y: clip;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+
+        &.hide {
+          opacity: 0;
+          height: 0px;
+          transition: opacity 0.25s, height 0.25s;
+        }
+
+        &.focus {
+          height: 300px;
+          transition: height 0.25s;
+
+          .carouselItem {
+            height: 300px;
+            transition: height 0.25s;
+          }
+        }
+
+        .carouselItem { 
+          width: auto;
+          height: 80px;
+          transition: height 0.25s;
+          flex-shrink: 0;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .progressBarContainer {
+        position: relative;
+        height: 1px;
+        width: 100%;
+        background-color: rgba(black, 0.3);
+        margin-top: 5px;
+
+        .progressBar {
+          height: 3px;
+          position: absolute;
+          top: -1px;
+          left: 0;
+          z-index: 99;
+          background: black;
+          border-radius: 10px;
+        }
       }
     }
   }
@@ -223,7 +283,7 @@
 
     .hero {
       padding-top: 22vh;
-      margin-left: 24%;
+      margin-left: 24vw;
     }
 
     .spinLogo {
@@ -237,7 +297,7 @@
     }
 
     .body {
-      margin-left: 24%;
+      margin-left: 24vw;
       margin-top: 40px;
 
       p {
@@ -252,7 +312,7 @@
 
     .indexSection {
       margin-top: 80px;
-      margin-left: 24%;
+      margin-left: 24vw;
 
       .indexLabel {
         margin-left: 0;
@@ -276,6 +336,14 @@
         .eventDesc {
           font-size: 16px;
           line-height: 24px;
+        }
+
+        .carousel {
+          margin-left: -24vw;
+        }
+        .progressBarContainer { 
+          margin-left: -24vw;
+          width: calc(100% + 24vw);
         }
       }
     }
